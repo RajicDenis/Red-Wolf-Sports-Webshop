@@ -16,12 +16,25 @@
         <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
 
         <!-- Styles -->
+     
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+         <!-- jQuery & jQuery UI-->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+        
+        <!-- JavaScripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
         <style>
             html, body {
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
+                font-family: 'Contrail One', cursive;
+                background-color: #F1F1F1;
             }
             .black {
                 color: black;
@@ -37,7 +50,7 @@
                 background-image: url({{ URL::asset('images/header/adidas.jpg') }});
             }
             .header-nav {
-                position: relative;
+                position: fixed;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -45,6 +58,8 @@
                 height: 100px;
                 border-bottom: 1px solid rgba(255,255,255, 0.6);
                 background: rgba(8,8,8,0.6);
+                z-index: 1000;
+                transition: all 0.3s ease-in-out;
             }
             .logo {
                 position: absolute;
@@ -82,7 +97,7 @@
                 height: 40px;
                 border-radius: 50%;
                 border: 1px solid white;
-                background-color: white;
+                background: rgba(8,8,8,0.6);
                 margin-right: 5px;
             }
             .icon-img {
@@ -134,7 +149,7 @@
             .btn-a {
                 display: flex;
                 align-items: center;
-                padding: 15px 35px;
+                padding: 12px 35px;
                 border-radius: 30px;
             }
             .poster-btn {
@@ -155,6 +170,27 @@
             }
 
         </style>
+
+        <script>
+            $('document').ready(function() {
+
+                console.log($(window).scrollTop());
+
+                $(window).scroll(function() {
+                    $('.header-nav').css('background-color', '#1C1C1C');
+                    if($(window).scrollTop() == 0) {
+                        $('.header-nav').css('background-color', 'rgba(8,8,8,0.7)');
+                    }
+                }) 
+
+            }) 
+
+                
+
+            
+
+        </script>
+
     </head>
     <body>
 
@@ -174,9 +210,9 @@
 
                <div class="nav2">
                     <ul class="list">
-                        <li class="log-li"><div class="icon-box"><i class="far fa-user-circle s2x black"></i></div> Log In</li>
-                        <li class="log-li"><div class="icon-box"><i class="fas fa-sign-in-alt s2x black"></i></div> Sign Up</li>
-                        <li><div class="icon-box"><i class="fas fa-cart-arrow-down black"></i></div></li>
+                        <li class="log-li"><div class="icon-box"><i class="far fa-user-circle s2x white"></i></div> Log In</li>
+                        <li class="log-li"><div class="icon-box"><i class="fas fa-sign-in-alt s2x white"></i></div> Sign Up</li>
+                        <li><div class="icon-box"><i class="fas fa-cart-arrow-down white"></i></div></li>
                     </ul>
                 </div> 
             </div>
@@ -245,6 +281,7 @@
                 height: 450px;
                 margin: 0 15px 100px 15px;
                 background-color: white;
+                box-shadow: 2px 0px 8px rgba(8,8,8,0.5);
             }
             .product-img {
                 width: 80%;
@@ -325,6 +362,176 @@
 
             </div>
 
+        </div>
+
+        <style>
+            .section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 100px;
+            }
+            .section-box {
+                position: relative;
+                width: 80%;
+            }
+            .section-img {
+                width: 80%;
+                background-size: cover;
+                background-position: center;
+                box-shadow: 0px 0px 10px rgba(8,8,8,0.6);
+            }
+            .section-desc {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 25px;
+                bottom: 0;
+                right: 0;
+                width: 40%;
+                height: 55%;
+                background-color: white;
+                box-shadow: 0px 0px 10px rgba(8,8,8,0.6);
+            }
+            .explore {
+                background: white;
+                color: black;
+                border: 2px solid black;
+            }
+            .sec {
+                font-size: 40px;
+            }
+
+
+            .sb-2 {
+                display: flex;
+                height: 600px;
+                box-shadow: 2px 2px 10px rgba(8,8,8,0.7);
+            }
+            .s2-left {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                background-color: white;
+                width: 35%;
+                background-color: #EB0E26;
+                color: white !important;
+                padding: 20px;
+            }
+            .s2-right {
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+            }
+            .s2-right-box {
+                position: relative;
+                display: flex;
+                width: 100%;
+            }
+            .wh {
+                color: white;
+            }
+            .tc {
+                text-align: center;
+            }
+            .explore2 {
+                border: 2px solid white;
+                background: transparent;
+            }
+            .play-btn {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background: rgba(8,8,8,0.7);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 0px 0px 15px rgba(8,8,8,0.7);
+            }
+            .play-img {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+            }
+
+
+            .inverse-desc {
+                left: 0;
+                box-shadow: 10px 0px 10px rgba(8,8,8,0.7);
+            }
+            .inverse-img {
+                margin-left: 20%;
+            }
+            .explore, .explore2 {
+                margin-top: 15px;
+            }
+        </style>
+
+        <div class="section">
+
+            <div class="section-box">
+                <img class="section-img" src="{{URL::asset('images/posters/adidas.jpg')}}">
+
+                <div class="section-desc">
+
+                    <h2 class="p-title sec">Adidas Football Shoes</h2>
+
+                     <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
+
+                     <div class="btn-a explore">EXPLORE</div>
+
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="section">
+            
+            <div class="section-box sb-2">
+                
+                <div class="s2-left">
+                    <h2 class="p-title sec wh">Never Follow!</h2>
+
+                    <p class="p-desc wh tc">Whether you're playing in the biggest stadiums in the world, bossing the cage, or the king of your street, do it your own way. Those who create their own path never follow.</p>
+
+                    <div class="btn-a explore2 wh">EXPLORE</div>
+                </div>
+
+                <div class="s2-right-box">
+                    <img class="s2-right" src="{{URL::asset('images/video/pogba.jpg')}}">
+
+                    <div class="play-btn"><img class="play-img" src="{{URL::asset('images/icons/play.png')}}"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <div class="section-box">
+                <img class="section-img inverse-img" src="{{URL::asset('images/posters/nike.jpg')}}">
+
+                <div class="section-desc inverse-desc">
+
+                    <h2 class="p-title sec">Nike Football Shoes</h2>
+
+                     <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
+
+                     <div class="btn-a explore">EXPLORE</div>
+
+                </div>
+            </div>
+            
         </div>
 
         
