@@ -8,6 +8,7 @@
         <title>Red Wolf Sports</title>
 
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -36,11 +37,17 @@
                 font-family: 'Contrail One', cursive;
                 background-color: #F1F1F1;
             }
+            h1, h2, h3, h4 {
+                margin: 30px 0;
+            }
             .black {
                 color: black;
             }
             .white {
                 color: white;
+            }
+            .ul {
+                text-decoration: underline;
             }
             .header {
                 width: 100%;
@@ -174,8 +181,6 @@
         <script>
             $('document').ready(function() {
 
-                console.log($(window).scrollTop());
-
                 $(window).scroll(function() {
                     $('.header-nav').css('background-color', '#1C1C1C');
                     if($(window).scrollTop() == 0) {
@@ -258,7 +263,6 @@
                 justify-content: center;
                 font-family: 'Contrail One', cursive;
                 font-size: 20px;
-                width: 200px;
                 border: 2px solid black;
                 margin-bottom: 100px;
             }
@@ -296,11 +300,11 @@
             }
             .price {
                 justify-content: center;
-                width: 80px;
+                margin: 0 20px 5px 20px;
                 font-size: 25px;
                 color: white;
                 text-align: center;
-                padding: 9px 18px;
+                padding: 6px 20px;
             }
             .p-desc {
                 margin-top: 0;
@@ -532,6 +536,161 @@
                 </div>
             </div>
             
+        </div>
+
+        <style>
+            .flex-c {
+                flex-direction: column;
+                padding: 70px 0;
+                background: white;
+            }
+            .form-box {
+                display: flex;
+            }
+            .input-fld {
+                width: 250px;
+                height: 45px;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                padding: 0 15px;
+                border: 1px solid rgba(8,8,8,0.5);
+                border-top-left-radius: 25px;
+                border-bottom-left-radius: 25px;
+            }
+            .input-fld:focus {
+                outline: none;
+            }
+            .newsletter-btn {
+                background: white;
+                width: 100px;
+                height: 45px;
+                border: 1px solid rgba(8,8,8,0.5);
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+            }
+            .ml {
+                margin-left: 8px;
+            }
+
+            .footer {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: #1C1C1C;
+                padding: 50px 0;
+            }
+            .footer-links-box {
+                display: flex;
+                width: 80%;
+                justify-content: space-around;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.3);
+            }
+            .footer-logo {
+                position: relative;
+                width: 200px;
+                height: 100px;
+            }
+            .fl-img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .footer-list {
+                flex-direction: column;
+                padding-left: 0;
+            }
+            .soc-btn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50px;
+                height: 50px;
+                border: 1px solid rgba(255,255,255,0.5);
+                border-radius: 50%;
+                background: transparent;
+                margin: 0 15px;
+            }
+        </style>
+
+        <div class="section flex-c">
+            
+            <h1>Subscribe to our Newsletter!</h1>
+
+            <p>Get the latest news about the newest football gear!</p>
+
+            <form id="newsletter-form">
+                <div class="form-box">
+                    <input class="input-fld" type="email" name="email" required>
+
+                    <button type="submit" class="newsletter-btn"><span class="newsletter-btn-txt">Sign Up</span><i class="fa fa-angle-double-right black ml"></i></button>
+                </div>
+            </form>
+
+        </div>
+
+
+        <div class="footer">
+            
+            <div class="footer-logo"><img class="fl-img" src="{{URL::asset('images/redwolf.png')}}"></div>
+
+            <div class="footer-links-box">
+                
+                <div class="link-box">
+                    <h4 class="white ul">Red Wolf Sports</h4>
+
+                    <ul class="footer-list d-flex">
+                        <li class="mb-2">ABOUT US</li>
+                        <li class="mb-2">LOCATION</li>
+                        <li class="mb-2">INFO</li>
+                    </ul>
+                </div>
+
+                <div class="link-box">
+                    <h4 class="white ul">Service</h4>
+
+                    <ul class="footer-list d-flex">
+                        <li class="mb-2">CONTACT US</li>
+                        <li class="mb-2">COMPLAINT</li>
+                        <li class="mb-2">SITEMAP</li>
+                    </ul>
+                </div>
+
+                <div class="link-box">
+                    <h4 class="white ul">Conditions</h4>
+
+                    <ul class="footer-list d-flex">
+                        <li class="mb-2">FREIGHT POLICY</li>
+                        <li class="mb-2">RETURN POLICY</li>
+                        <li class="mb-2">PAYMENT</li>
+                    </ul>
+                </div>
+
+                <div class="link-box">
+                    <h4 class="white ul">Privacy Policy</h4>
+
+                    <ul class="footer-list d-flex">
+                        <li class="mb-2">PRIVACY</li>
+                        <li class="mb-2">COOKIES</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-social d-flex align-items-center mt-3">
+                <h4 class="white mr-4">Follow Us:</h4>
+
+                <div class="soc-btn"><i class="fab fa-facebook-f white"></i></div>
+
+                <div class="soc-btn"><i class="fab fa-twitter white"></i></div>
+
+                <div class="soc-btn"><i class="fab fa-instagram white"></i></div>
+
+                <div class="soc-btn"><i class="fab fa-linkedin-in white"></i></div>
+            </div>
+
         </div>
 
         
