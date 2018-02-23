@@ -30,6 +30,26 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
         <style>
+            html, body {
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+                font-family: 'Contrail One', cursive;
+                background-color: #F1F1F1;
+            }
+            h1, h2, h3, h4 {
+                margin: 30px 0;
+            }
+            .black {
+                color: black;
+            }
+            .white {
+                color: white;
+            }
+            .ul {
+                text-decoration: underline;
+            }
             .header {
                 background-image: url({{ URL::asset('images/header/adidas.jpg') }});
             }
@@ -45,6 +65,7 @@
                 z-index: 1000;
                 transition: all 0.3s ease-in-out;
             }
+
         </style>
 
         <script>

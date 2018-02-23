@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('pages.homepage');
 });
+
+Route::get('brandPage', function() {
+	return view('pages.brandPage');
+});
