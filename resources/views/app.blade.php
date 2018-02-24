@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" rel="stylesheet">
 
         <!-- Styles --> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,6 +42,11 @@
             h1, h2, h3, h4 {
                 margin: 30px 0;
             }
+
+            a:link, a:focus, a:hover, a:visited {
+                text-decoration: none;
+                color: #1C1C1C;
+            }
             .black {
                 color: black;
             }
@@ -49,6 +55,11 @@
             }
             .ul {
                 text-decoration: underline;
+            }
+            .white-to-black:hover {
+                background: #1C1C1C;
+                color: white;
+                transition: all 0.3s ease-in-out;
             }
             .header {
                 background-image: url({{ URL::asset('images/header/adidas.jpg') }});

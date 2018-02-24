@@ -6,7 +6,7 @@
 	h3, h4, p {
 		position: relative;
 		z-index: 10;
-		margin-left: 25px;
+		margin-left: 40px;
 	}
 	.partial-poster {
 		position: relative;
@@ -75,19 +75,21 @@
 		color: white;
 		padding: 10px 20px;
 		z-index: 10;
-		margin-left: 25px;
+		margin-left: 40px;
 	}
 
 	.brand-products {
 		display: flex;
+		flex-direction: column;
+		align-items: center;
 		justify-content: center;
 		margin: 20px 0 100px 0;
 	}
 	.bp-box {
 		display: flex;
 		width: 65%;
-		height: 500px;
 		background: white;
+		margin-bottom: 50px;
 	}
 	.bp-left, .bp-right {
 		width: 50%;
@@ -96,13 +98,18 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+	    padding: 40px 0;
+	}
+	.bp-title {
+		font-family: 'Bubblegum Sans', cursive;
 	}
 	.product-desc {
 		display: flex;
 	    flex-direction: column;
-	    font-size: 15px;
+	    font-size: 17px;
 		color: darkgray;
 		list-style-type: disc;
+		font-family: 'Bubblegum Sans', cursive;
 	}
 	.inverse {
 		background: #ea0d27;
@@ -141,7 +148,7 @@
 
 			<img class="bs-img" src="{{URL::asset('images/posters/copa.jpg')}}">
 			
-			<h3 class="">NEMESIS</h3>
+			<h3>NEMESIS</h3>
 
 			<p>Designed for explosive mobility</p>
 
@@ -153,7 +160,7 @@
 
 			<img class="bs-img" src="{{URL::asset('images/posters/predator.jpg')}}">
 			
-			<h3 class="">COPA</h3>
+			<h3>COPA</h3>
 
 			<p>Get a first touch like no other</p>
 
@@ -169,7 +176,7 @@
 		<div class="bp-box">
 			
 			<div class="bp-left">
-				<h3>NEMESIS TANGO 17+</h3>
+				<h3 class="bp-title">NEMESIS TANGO 17+</h3>
 
 				<ul class="product-desc">
 					<li class="mb-3">Foot-hugging Agility Knit 2.0 forefoot for perfect fit and response right out of the box</li>
@@ -178,11 +185,36 @@
 					<li class="mb-3">Secure lockdown and ankle stability with a Dual Lock Collar</li>
 				</ul>
 
+				<p>EUR<span class="pnbr">100</span><br><span class="pvat">Excl. VAT</span></p>
+
 				<div class="custom-btn inverse">EXPLORE</div>
 			</div>
 
 			<div class="bp-right">
 				<img class="right-img" src="{{URL::asset('images/products/nike-merc.jpg')}}">
+			</div>
+
+		</div>
+
+		<div class="bp-box">
+			
+			<div class="bp-left">
+				<h3 class="bp-title">PREDATOR VIPER 3</h3>
+
+				<ul class="product-desc">
+					<li class="mb-3">Foot-hugging Agility Knit 2.0 forefoot for perfect fit and response right out of the box</li>
+					<li class="mb-3">Lateral and medial support from 360 Torsion Tape inspired by sports taping</li>
+					<li class="mb-3">Highest mobility and bandaged fit during radical play with the revolutionary Torsion Tape of the 360 Agility Bandage System, inspired by sports taping</li>
+					<li class="mb-3">Secure lockdown and ankle stability with a Dual Lock Collar</li>
+				</ul>
+
+				<p>EUR<span class="pnbr">100</span><br><span class="pvat">Excl. VAT</span></p>
+
+				<div class="custom-btn inverse">EXPLORE</div>
+			</div>
+
+			<div class="bp-right">
+				<img class="right-img" src="{{URL::asset('images/products/nike-t90.jpg')}}">
 			</div>
 
 		</div>

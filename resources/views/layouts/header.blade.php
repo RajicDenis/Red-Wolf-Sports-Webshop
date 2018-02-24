@@ -8,7 +8,7 @@
         </ul>
     </div>
 
-    <div class="logo"><img class="logo-img" src="{{URL::asset('images/redwolf.png')}}"></div>
+    <a href="{{URL::route('home')}}" class="logo"><img class="logo-img" src="{{URL::asset('images/redwolf.png')}}"></a>
 
    <div class="nav2">
         <ul class="list">

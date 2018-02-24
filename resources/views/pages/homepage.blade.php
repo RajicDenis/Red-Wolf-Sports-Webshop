@@ -91,9 +91,9 @@
 
             <h2 class="p-title sec">Adidas Football Shoes</h2>
 
-             <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
+            <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
 
-             <div class="btn-a explore">EXPLORE</div>
+            <a href="{{URL::route('brand')}}" class="btn-a explore white-to-black">EXPLORE</a>
 
         </div>
     </div>
@@ -131,9 +131,9 @@
 
             <h2 class="p-title sec">Nike Football Shoes</h2>
 
-             <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
+            <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
 
-             <div class="btn-a explore">EXPLORE</div>
+            <a href="{{URL::route('brand')}}" class="btn-a explore white-to-black">EXPLORE</a>
 
         </div>
     </div>
