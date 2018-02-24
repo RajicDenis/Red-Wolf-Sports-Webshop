@@ -83,9 +83,25 @@
             $('document').ready(function() {
 
                 $(window).scroll(function() {
+                    var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
+
                     $('.header-nav').css('background-color', '#1C1C1C');
                     if($(window).scrollTop() == 0) {
                         $('.header-nav').css('background-color', 'rgba(8,8,8,0.7)');
+                    }
+
+                    if(scrollBottom < 750) {
+                       $('.pw-right').css({
+                            'position': 'absolute',
+                            'bottom': '90px',
+                            'top': 'auto'
+                        }); 
+                    } else {
+                        $('.pw-right').css({
+                            'position': 'fixed',
+                            'bottom': 'auto',
+                            'top': '300px'
+                        }); 
                     }
                 }) 
 
