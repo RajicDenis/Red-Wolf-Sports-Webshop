@@ -14,9 +14,9 @@
             <p>EUR<span class="pnbr">100</span><br><span class="pvat">Excl. VAT</span></p>
 
             <div class="poster-buttons">
-                <div class="btn-a poster-btn">EXPLORE</div>
+                <a href="{{URL::route('brand')}}" class="btn-a poster-btn white">EXPLORE</a>
 
-                <div class="btn-a poster-btn buy">BUY NOW</div>
+                <a href="{{URL::route('product')}}" class="btn-a poster-btn buy white">BUY NOW</a>
             </div>
         
         </div>
@@ -42,7 +42,7 @@
 
             <p class="p-desc">Firm-Ground Football Boot</p>
 
-            <div class="btn-a buy price">€ 120</div>
+            <a href="{{URL::route('product')}}" class="btn-a buy price">€ 120</a>
 
             <p class="vat">Excl. VAT</p>
 
@@ -57,7 +57,7 @@
 
             <p class="p-desc">Firm-Ground Football Boot</p>
 
-            <div class="btn-a buy price">€ 150</div>
+            <a href="{{URL::route('product')}}" class="btn-a buy price">€ 150</a>
 
             <p class="vat">Excl. VAT</p>
 
@@ -71,7 +71,7 @@
 
             <p class="p-desc">Firm-Ground Football Boot</p>
 
-            <div class="btn-a buy price">€ 140</div>
+            <a href="{{URL::route('product')}}" class="btn-a buy price">€ 140</a>
 
             <p class="vat">Excl. VAT</p>
 
@@ -109,7 +109,7 @@
 
             <p class="p-desc wh tc">Whether you're playing in the biggest stadiums in the world, bossing the cage, or the king of your street, do it your own way. Those who create their own path never follow.</p>
 
-            <div class="btn-a explore2 wh">EXPLORE</div>
+            <a href="{{URL::route('brand')}}" class="btn-a explore2 wh white">EXPLORE</a>
         </div>
 
         <div class="s2-right-box">

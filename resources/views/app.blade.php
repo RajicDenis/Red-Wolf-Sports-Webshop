@@ -7,8 +7,8 @@
 
         <title>Red Wolf Sports</title>
 
-        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         {!! Html::style('css/footer.css')!!}
         {!! Html::style('css/homepage.css')!!}
+        {!! Html::style('css/pages/product.css')!!}
 
          <!-- jQuery & jQuery UI-->
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
@@ -29,6 +30,7 @@
         
         <!-- JavaScripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
         <style>
             html, body {
@@ -42,16 +44,15 @@
             h1, h2, h3, h4 {
                 margin: 30px 0;
             }
-
             a:link, a:focus, a:hover, a:visited {
                 text-decoration: none;
                 color: #1C1C1C;
             }
             .black {
-                color: black;
+                color: black !important;
             }
             .white {
-                color: white;
+                color: white !important;
             }
             .ul {
                 text-decoration: underline;

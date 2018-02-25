@@ -2,9 +2,9 @@
     <div class="nav">
         <ul class="list">
             <li><i class="fas fa-bars white"></i></li>
-            <li>ABOUT US</li>
-            <li>CONTACT US</li>
-            <li>PRODUCTS</li>
+            <li><a class="white" href="{{URL::route('brand')}}">ADIDAS</a></li>
+            <li><a class="white" href="{{URL::route('brand')}}">NIKE</a></li>
+            <li><a class="white" href="{{URL::route('allProducts')}}">ALL PRODUCTS</a></li>
         </ul>
     </div>
 

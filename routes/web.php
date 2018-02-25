@@ -22,3 +22,7 @@ Route::get('brandPage', function() {
 Route::get('product', function() {
 	return view('pages.product');
 })->name('product');
+
+Route::get('allProducts', function() {
+	return view('pages.allProducts');
+})->name('allProducts');

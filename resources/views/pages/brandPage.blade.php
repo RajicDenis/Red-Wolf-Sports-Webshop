@@ -120,7 +120,7 @@
 	}
 </style>
 
-<div class="section-wrap">
+<div class="brandPage-wrap">
 
 	<div class="partial-poster">
 
