@@ -26,7 +26,7 @@
 
 		<div class="pw-right">
 			
-			<h3>ADIDAS NEMESIS 17+</h3>
+			<h1>ADIDAS NEMESIS 17+</h1>
 
 			<p>New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
 

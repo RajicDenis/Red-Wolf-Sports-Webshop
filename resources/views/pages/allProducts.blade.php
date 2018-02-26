@@ -9,44 +9,16 @@
 	.section-wrap {
 		padding-top: 100px;
 	}
-
-	.filter-nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		position: fixed;
-		width: 100%;
-		height: 80px;
-		background: white;
+	.t25 {
 		color: #1C1C1C;
-		padding: 0 50px;
 	}
-	.filter-btn {
-		border: 2px solid rgba(8,8,8,0.4);
+	.list-type-25 {
+		border: 2px solid #1C1C1C;
 	}
-	.f-txt {
-	    font-size: 17px;
-	}
-	.filter-list {
-		display: flex;
-		align-items: center;
-	}
-	.list-btn {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: 1px solid #1C1C1C;
-		border-radius: 50%;
-		width: 40px;
-		height: 40px;
-	}
-	.fs20 {
-		font-size: 15px;
-		top: 0;
-	}
+
 </style>
 
-<div class="section-wrap">
+<div class="section-wrap d-flex justify-content-center">
 	
 	<div class="filter-nav">
 		
@@ -58,18 +30,36 @@
 
 			<span class="f-txt mr-3">LIST DISPLAY</span>
 
-			<a href="#" class="list-btn mr-3"><span class="glyphicons glyphicon glyphicon-stop fs20" aria-hidden="true"></span></span></a>
+			<a href="#" class="list-btn mr-3 list-type-50"><span class="glyphicons glyphicon glyphicon-stop fs20 t50" aria-hidden="true"></span></span></a>
 
-			<a href="#" class="list-btn mr-3"><span class="glyphicons glyphicon glyphicon-th-large fs20 ml-1" aria-hidden="true"></span></a>
+			<a href="#" class="list-btn mr-3 list-type-33"><span class="glyphicons glyphicon glyphicon-th-large fs20 t33 ml-1" aria-hidden="true"></span></a>
 						
-			<a href="#" class="list-btn mr-3"><span class="glyphicons glyphicon glyphicon-th fs20 ml-1" aria-hidden="true"></span></span></a>
+			<a href="#" class="list-btn mr-3 list-type-25"><span class="glyphicons glyphicon glyphicon-th fs20 t25 ml-1" aria-hidden="true"></span></span></a>
 
 		</div>
 
 	</div>
 
 
-	
+	<div class="products-list">
+		
+		@for($i=1; $i<11; $i++)
+		<div class="product-list-item">
+
+			<img class="list-item-img" src="{{URL::asset('images/products/'.$i.'.png')}}">
+			
+			<h1>NEMESIS {{$i}}+</h1>
+
+			<p>5-63010.1 | S3 ESD SRC</p>
+
+			<a href="{{URL::route('product')}}" class="btn-a buy price">€ 150</a>
+
+            <p class="vat">Excl. VAT</p>
+
+		</div>
+		@endfor
+
+	</div>
 
 </div>
 

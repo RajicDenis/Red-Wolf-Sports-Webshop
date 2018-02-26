@@ -22,6 +22,7 @@
         {!! Html::style('css/footer.css')!!}
         {!! Html::style('css/homepage.css')!!}
         {!! Html::style('css/pages/product.css')!!}
+        {!! Html::style('css/pages/allProducts.css')!!}
 
          <!-- jQuery & jQuery UI-->
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
@@ -86,15 +87,17 @@
                 $(window).scroll(function() {
                     var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();
 
+                    // Make header transparent when on top of the page, add color when scrolled down
                     $('.header-nav').css('background-color', '#1C1C1C');
                     if($(window).scrollTop() == 0) {
                         $('.header-nav').css('background-color', 'rgba(8,8,8,0.7)');
                     }
 
+                    // Product page - make product description follow user scroll
                     if(scrollBottom < 750) {
                        $('.pw-right').css({
                             'position': 'absolute',
-                            'bottom': '90px',
+                            'bottom': '150px',
                             'top': 'auto'
                         }); 
                     } else {
@@ -104,9 +107,41 @@
                             'top': '300px'
                         }); 
                     }
-                }) 
+                })
 
-            }) 
+
+                $('.list-type-50').on('click', function() {
+                    $('.list-btn').css('border', '2px solid darkgray');
+                    $(this).css('border', '2px solid #1C1C1C');
+                    $('.fs20').css('color', 'darkgray');
+                    $('.t50').css('color', '#1C1C1C');
+                    $('.product-list-item').css({
+                        'width': '30%',
+                        'margin': '30px 50px'
+                    });
+                });
+                $('.list-type-33').on('click', function() {
+                    $('.list-btn').css('border', '2px solid darkgray');
+                    $(this).css('border', '2px solid #1C1C1C');
+                    $('.fs20').css('color', 'darkgray');
+                    $('.t33').css('color', '#1C1C1C');
+                    $('.product-list-item').css({
+                        'width': '33%',
+                        'margin': '30px 0'
+                    });
+                });
+                $('.list-type-25').on('click', function() {
+                    $('.list-btn').css('border', '2px solid darkgray');
+                    $(this).css('border', '2px solid #1C1C1C');
+                    $('.fs20').css('color', 'darkgray');
+                    $('.t25').css('color', '#1C1C1C');
+                    $('.product-list-item').css({
+                        'width': '25%',
+                        'margin': '30px 0'
+                    });
+                });
+
+            });
 
         </script>
 
