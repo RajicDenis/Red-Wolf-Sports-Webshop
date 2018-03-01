@@ -109,7 +109,7 @@
                     }
                 })
 
-
+                //Change list type on All products page
                 $('.list-type-50').on('click', function() {
                     $('.list-btn').css('border', '2px solid darkgray');
                     $(this).css('border', '2px solid #1C1C1C');
