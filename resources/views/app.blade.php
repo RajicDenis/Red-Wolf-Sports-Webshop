@@ -23,6 +23,7 @@
         {!! Html::style('css/homepage.css')!!}
         {!! Html::style('css/pages/product.css')!!}
         {!! Html::style('css/pages/allProducts.css')!!}
+        {!! Html::style('css/pages/checkout.css')!!}
 
          <!-- jQuery & jQuery UI-->
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
