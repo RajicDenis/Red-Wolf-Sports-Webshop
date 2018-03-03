@@ -55,6 +55,9 @@
             .white {
                 color: white !important;
             }
+            .gray {
+                color: gray;
+            }
             .ul {
                 text-decoration: underline;
             }

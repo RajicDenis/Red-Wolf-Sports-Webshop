@@ -26,3 +26,7 @@ Route::get('product', function() {
 Route::get('allProducts', function() {
 	return view('pages.allProducts');
 })->name('allProducts');
+
+Route::get('checkout', function() {
+	return view('pages.checkout');
+})->name('checkout');
