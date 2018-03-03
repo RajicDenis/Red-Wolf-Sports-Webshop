@@ -37,7 +37,9 @@
 	<div class="check-info">
 		
 		<div class="form-box">
-			<form id="checkout" class="check-form">
+			<form action="#" id="checkout" class="check-form" method="POST">
+
+				@csrf
 
 				<p class="req">*Required</p>
 

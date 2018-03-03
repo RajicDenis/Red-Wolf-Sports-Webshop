@@ -59,6 +59,9 @@
             .gray {
                 color: gray;
             }
+            .redbg {
+                background: #ea0d27;
+            }
             .ul {
                 text-decoration: underline;
             }
@@ -143,6 +146,30 @@
                         'width': '25%',
                         'margin': '30px 0'
                     });
+                });
+
+                //Show cart on product page
+                $('.ap-basket').on('click', function() {
+                    $('.addToBasket').css('right', '0px');
+                    $('.test').addClass('overlay');
+                    $('body').css('overflow-y', 'hidden');
+                });
+
+                $('.close-basket').on('click', function() {
+                    $('.addToBasket').css('right', '-500px');
+                    $('.test').removeClass('overlay');
+                    $('body').css('overflow-y', 'auto');
+                });
+
+                //Choose size on cart
+                $('.size-circle').on('click', function() {
+                    $('.size-circle').removeClass('selected');
+                    $(this).addClass('selected');
+
+                    //Add shoe size value to form
+                    $size = $(this).text();
+
+                    $('#size').val($size);
                 });
 
             });

@@ -8,7 +8,45 @@
 	}
 </style>
 
+<div class="test"></div>
+
 <div class="section-wrap">
+
+	<div class="addToBasket">
+
+		<div class="close-basket"><i class="far fa-times-circle fa-3x"></i></div>
+		
+		<div class="size-box">
+			<h2 class="white">CHOOSE SIZE</h2>
+
+			<div class="sizes">
+				<div class="size-circle">39</div>
+				<div class="size-circle">40</div>
+				<div class="size-circle">41</div>
+				<div class="size-circle">42</div>
+				<div class="size-circle">43</div>
+				<div class="size-circle">44</div>
+				<div class="size-circle">45</div>
+				<div class="size-circle">46</div>
+				<div class="size-circle">47</div>
+			</div>
+		</div>
+
+		<form action="#" class="cart-form" method="POST">
+
+			@csrf
+
+			<h2 class="white">CHOOSE QUANTITY</h2>
+
+			<input type="number" name="quantity" min="1" max="100" value="1">
+
+			<input type="hidden" name="size" id="size" value="" required>
+
+			<button class="pay crt-btn redbg" type="submit">ADD</button>
+			
+		</form>
+
+	</div>
 	
 	<div class="addProduct">
 		<div class="ap-desc"><span>NEMESIS 17+</span>:<span>EUR 100 (Excl. VAT)</span></div>
