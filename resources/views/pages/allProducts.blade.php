@@ -43,21 +43,21 @@
 
 	<div class="products-list">
 		
-		@for($i=1; $i<11; $i++)
+		@foreach($products as $product)
 		<div class="product-list-item">
 
-			<img class="list-item-img" src="{{URL::asset('images/products/'.$i.'.png')}}">
+			<img class="list-item-img" src="{{URL::asset('images/products/'.$product->image.'')}}">
 			
-			<h1>NEMESIS {{$i}}+</h1>
+			<h1>{{ $product->name }}</h1>
 
-			<p>5-63010.1 | S3 ESD SRC</p>
+			<p>{{ $product->short }}</p>
 
-			<a href="{{URL::route('product')}}" class="btn-a buy price">€ 150</a>
+			<a href="{{URL::route('product')}}" class="btn-a buy price">€ {{ $product->price }}</a>
 
             <p class="vat">Excl. VAT</p>
 
 		</div>
-		@endfor
+		@endforeach
 
 	</div>
 

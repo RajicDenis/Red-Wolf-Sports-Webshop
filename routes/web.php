@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.homepage');
-})->name('home');
+Route::get('/', 'HomepageController@index')->name('home');
 
 Route::get('brandPage', function() {
 	return view('pages.brandPage');
@@ -23,9 +21,7 @@ Route::get('product', function() {
 	return view('pages.product');
 })->name('product');
 
-Route::get('allProducts', function() {
-	return view('pages.allProducts');
-})->name('allProducts');
+Route::get('allProducts', 'AllProductsController@index')->name('allProducts');
 
 Route::get('checkout', function() {
 	return view('pages.checkout');

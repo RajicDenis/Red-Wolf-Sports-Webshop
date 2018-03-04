@@ -6,27 +6,13 @@
 	.header-nav {
 		background: #1C1C1C !important;
 	}
-		/*Checkbox*/
-	input[type=checkbox] {
-		display:none;
-	} 
+
+	/*Checkbox*/
 	input[type=checkbox] + label {
 		background-image: url({{URL::asset('images/icons/empty-checkbox.png')}});
-		background-size: cover;
-		height: 30px;
-		width: 30px;
-		display:inline-block;
-		padding: 0 0 0 0px;
-		cursor: pointer;
 	}
 	input[type=checkbox]:checked + label {
 		background-image: url({{URL::asset('images/icons/checked.png')}});
-	    background-size: cover;
-		height: 30px;
-		width: 30px;
-		display:inline-block;
-		padding: 0 0 0 0px;
-		cursor: pointer;
 	}
 </style>
 

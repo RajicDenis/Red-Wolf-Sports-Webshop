@@ -162,7 +162,6 @@ li {
     box-shadow: 2px 0px 8px rgba(8,8,8,0.5);
 }
 .product-img {
-    width: 80%;
     height: 50%;
     background-size: cover;
     background-position: center;
@@ -171,6 +170,7 @@ li {
     color: black;
     font-weight: 400;
     text-align: center;
+    font-size: 28px;
 }
 .price {
     justify-content: center;
@@ -290,7 +290,6 @@ li {
     width: 60px;
     height: 60px;
 }
-
 
 .inverse-desc {
     left: 0;

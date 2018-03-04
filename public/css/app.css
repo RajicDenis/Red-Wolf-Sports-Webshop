@@ -1,0 +1,14 @@
+/*Pages*/
+@import 'pages/allProducts.css';
+@import 'pages/checkout.css';
+@import 'pages/product.css';
+
+/*Homepage*/
+@import 'base/homepage.css';
+
+/*Layouts*/
+@import 'layouts/footer.css';
+
+/*Main*/
+@import 'base/main.css';
+

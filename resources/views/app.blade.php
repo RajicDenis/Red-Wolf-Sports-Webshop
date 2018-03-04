@@ -19,11 +19,7 @@
 
         <!-- Styles --> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        {!! Html::style('css/footer.css')!!}
-        {!! Html::style('css/homepage.css')!!}
-        {!! Html::style('css/pages/product.css')!!}
-        {!! Html::style('css/pages/allProducts.css')!!}
-        {!! Html::style('css/pages/checkout.css')!!}
+        {!! Html::style('css/app.css')!!}
 
          <!-- jQuery & jQuery UI-->
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
@@ -35,57 +31,9 @@
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
         <style>
-            html, body {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-                font-family: 'Contrail One', cursive;
-                background-color: #F1F1F1;
-            }
-            h1, h2, h3, h4 {
-                margin: 30px 0;
-            }
-            a:link, a:focus, a:hover, a:visited {
-                text-decoration: none;
-                color: #1C1C1C;
-            }
-            .black {
-                color: black !important;
-            }
-            .white {
-                color: white !important;
-            }
-            .gray {
-                color: gray;
-            }
-            .redbg {
-                background: #ea0d27;
-            }
-            .ul {
-                text-decoration: underline;
-            }
-            .white-to-black:hover {
-                background: #1C1C1C;
-                color: white;
-                transition: all 0.3s ease-in-out;
-            }
             .header {
                 background-image: url({{ URL::asset('images/header/adidas.jpg') }});
             }
-            .header-nav {
-                position: fixed;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                height: 100px;
-                border-bottom: 1px solid rgba(255,255,255, 0.6);
-                background: rgba(8,8,8,0.6);
-                z-index: 1000;
-                transition: all 0.3s ease-in-out;
-            }
-
         </style>
 
         <script>

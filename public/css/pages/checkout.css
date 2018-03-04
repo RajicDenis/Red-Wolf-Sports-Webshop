@@ -131,3 +131,23 @@ input::placeholder {
 	background: #ea0d27;
 }
 
+/*Checkbox*/
+input[type=checkbox] {
+	display:none;
+} 
+input[type=checkbox] + label {
+	background-size: cover;
+	height: 30px;
+	width: 30px;
+	display:inline-block;
+	padding: 0 0 0 0px;
+	cursor: pointer;
+}
+input[type=checkbox]:checked + label {
+    background-size: cover;
+	height: 30px;
+	width: 30px;
+	display:inline-block;
+	padding: 0 0 0 0px;
+	cursor: pointer;
+}

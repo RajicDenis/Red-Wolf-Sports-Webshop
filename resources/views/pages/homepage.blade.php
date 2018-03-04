@@ -7,11 +7,11 @@
     <div class="poster-box">
         <div class="poster-text">
 
-            <h1 class="poster-title">NIKE T90 LASER IV</h1>
+            <h1 class="poster-title">{{ $sponsored->name}}</h1>
 
-            <h4 class="poster-desc">The Nike T90 Laser IV Elite Firm-Ground Football Boot wraps your foot for a perfect fit and exceptional ball touch, while the forefoot plate provides explosive acceleration on the pitch.</h4>
+            <h4 class="poster-desc">{{ $sponsored->description}}</h4>
 
-            <p>EUR<span class="pnbr">100</span><br><span class="pvat">Excl. VAT</span></p>
+            <p>EUR<span class="pnbr">{{ $sponsored->price}}</span><br><span class="pvat">Excl. VAT</span></p>
 
             <div class="poster-buttons">
                 <a href="{{URL::route('brand')}}" class="btn-a poster-btn white">EXPLORE</a>
@@ -34,48 +34,21 @@
 
     <div class="products-box">
 
+        @foreach($products as $product)
         <div class="product">
             
-            <img class="product-img" src="{{URL::asset('images/products/nike-merc.jpg')}}">
+            <img class="product-img" src="{{URL::asset('images/products/'.$product->image.'')}}">
 
-            <h2 class="p-title">Nike Mercurial VII</h2>
+            <h2 class="p-title">{{ $product->name }}</h2>
 
-            <p class="p-desc">Firm-Ground Football Boot</p>
+            <p class="p-desc">{{ $product->short }}</p>
 
-            <a href="{{URL::route('product')}}" class="btn-a buy price">€ 120</a>
-
-            <p class="vat">Excl. VAT</p>
-
-
-        </div>
-
-        <div class="product">
-
-            <img class="product-img" src="{{URL::asset('images/products/nike-vapor.jpg')}}">
-
-            <h2 class="p-title">Nike Vapor F11</h2>
-
-            <p class="p-desc">Firm-Ground Football Boot</p>
-
-            <a href="{{URL::route('product')}}" class="btn-a buy price">€ 150</a>
+            <a href="{{URL::route('product')}}" class="btn-a buy price">{{ $product->price }}</a>
 
             <p class="vat">Excl. VAT</p>
 
         </div>
-
-         <div class="product">
-
-            <img class="product-img" src="{{URL::asset('images/products/nike-t90.jpg')}}">
-
-            <h2 class="p-title">Nike T90 Laser III</h2>
-
-            <p class="p-desc">Firm-Ground Football Boot</p>
-
-            <a href="{{URL::route('product')}}" class="btn-a buy price">€ 140</a>
-
-            <p class="vat">Excl. VAT</p>
-
-        </div>
+        @endforeach
 
     </div>
 
