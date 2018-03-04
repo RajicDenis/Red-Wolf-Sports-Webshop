@@ -18,7 +18,7 @@ class ProductsTableSeeder extends Seeder
         	'description' => 'New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.',
             'short' => 'Firm Ground Football Boot',
         	'price' => 120,
-        	'image' => 'nike-vapor.jpg',
+        	'image' => '3.png',
 
         ]);
 

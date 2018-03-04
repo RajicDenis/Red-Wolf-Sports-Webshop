@@ -12,5 +12,7 @@ class DatabaseSeeder extends Seeder
     function run()
     {
         $this->call(ProductsTableSeeder::class);
+
+        $this->call(GalleriesTableSeeder::class);
     }
 }

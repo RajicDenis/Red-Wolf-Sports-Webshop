@@ -17,9 +17,7 @@ Route::get('brandPage', function() {
 	return view('pages.brandPage');
 })->name('brand');
 
-Route::get('product', function() {
-	return view('pages.product');
-})->name('product');
+Route::get('product/{product}', 'ProductController@index')->name('product');
 
 Route::get('allProducts', 'AllProductsController@index')->name('allProducts');
 

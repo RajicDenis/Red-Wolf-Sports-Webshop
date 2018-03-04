@@ -49,7 +49,7 @@
                     }
 
                     // Product page - make product description follow user scroll
-                    if(scrollBottom < 750) {
+                    if(scrollBottom < 800) {
                        $('.pw-right').css({
                             'position': 'absolute',
                             'bottom': '150px',
