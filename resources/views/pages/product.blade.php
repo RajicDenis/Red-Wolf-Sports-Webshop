@@ -32,7 +32,7 @@
 			</div>
 		</div>
 
-		<form action="#" class="cart-form" method="POST">
+		<form action="{{ action('CartController@store') }}" class="cart-form" method="POST">
 
 			@csrf
 
@@ -41,6 +41,12 @@
 			<input type="number" name="quantity" min="1" max="100" value="1">
 
 			<input type="hidden" name="size" id="size" value="" required>
+
+			<input type="hidden" name="name" id="name" value="{{ $product->name }}">
+
+			<input type="hidden" name="pid" id="pid" value="{{ $product->id }}">
+
+			<input type="hidden" name="price" id="price" value="{{ $product->price }}">
 
 			<button class="pay crt-btn redbg" type="submit">ADD</button>
 			
@@ -57,10 +63,13 @@
 	<div class="product-wrap">
 		<div class="pw-left">
 
+		@if(count($product->gallery) > 0)
 			@foreach($product->gallery as $p)
 				<img class="pwl-img" src="{{URL::asset('images/products/'.$p->image.'')}}">
 			@endforeach
-
+		@else
+			<img class="pwl-img" src="{{URL::asset('images/icons/no_image.png')}}">	
+		@endif
 		</div>
 
 		<div class="pw-right">

@@ -56,11 +56,14 @@ input::placeholder {
 	color: gray;
 	border-bottom: 1px solid #1C1C1C;
 }
-.w40 {
-	width: 40%;
-}
 .w10 {
 	width: 10%;
+}
+.w20 {
+	width: 20%;
+}
+.w40 {
+	width: 40%;
 }
 .h150 {
 	display: flex;

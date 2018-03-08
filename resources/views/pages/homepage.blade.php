@@ -16,7 +16,7 @@
             <div class="poster-buttons">
                 <a href="{{URL::route('brand')}}" class="btn-a poster-btn white">EXPLORE</a>
 
-                <a href="{{URL::route('product')}}" class="btn-a poster-btn buy white">BUY NOW</a>
+                <a href="{{ action('ProductController@index', $sponsored->slug) }}" class="btn-a poster-btn buy white">BUY NOW</a>
             </div>
         
         </div>
@@ -43,7 +43,7 @@
 
             <p class="p-desc">{{ $product->short }}</p>
 
-            <a href="{{URL::route('product')}}" class="btn-a buy price">{{ $product->price }}</a>
+            <a href="{{ action('ProductController@index', $product->slug) }}" class="btn-a buy price">{{ $product->price }}</a>
 
             <p class="vat">Excl. VAT</p>
 

@@ -21,6 +21,6 @@ Route::get('product/{product}', 'ProductController@index')->name('product');
 
 Route::get('allProducts', 'AllProductsController@index')->name('allProducts');
 
-Route::get('checkout', function() {
-	return view('pages.checkout');
-})->name('checkout');
+Route::get('cart', 'CartController@index')->name('checkout');
+
+Route::post('cart/store', 'CartController@store');

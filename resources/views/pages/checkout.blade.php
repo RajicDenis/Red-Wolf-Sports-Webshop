@@ -27,6 +27,26 @@
 
 				@csrf
 
+				@if(session()->has('success'))
+
+					<div class="alert alert-success">
+						{{ session()->get('success') }}
+					</div>
+
+				@endif
+
+				@if(count($errors) > 0)
+	
+					<div class="alert alert-danger">
+						<ul>
+						@foreach($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+						</ul>
+					</div>
+
+				@endif
+
 				<p class="req">*Required</p>
 
 				<h2 class="inf">Your Information</h2>
@@ -57,7 +77,9 @@
 					<h2 class="inf">Your Products</h2>
 
 					<div class="product-info-header">
-						<p class="w40">PRODUCT</p>
+						<p class="w20">PRODUCT</p>
+
+						<p class="w20">NAME</p>
 
 						<p class="w10">SIZE</p>
 
@@ -66,22 +88,40 @@
 						<p class="w40 text-right">PRICE</p>
 					</div>
 
+					@if(Cart::count() > 0)
+
+					@foreach(Cart::content() as $item)
+
 					<div class="product-info-header">
-						<p class="w40 h150 black"><img class="product-info-img" src="{{URL::asset('images/products/nike-vapor.jpg')}}"></p>
+						<p class="w20 h150 black"><img class="product-info-img" src="{{URL::asset('images/products/'.$item->model->image.'')}}"></p>
 
-						<p class="w10 h150 black">45</p>
+						<p class="w20 h150 black">{{ $item->model->name }}</p>
 
-						<p class="w10 h150 black">1</p>
+						<p class="w10 h150 black">{{ $item->options->size }}</p>
 
-						<p class="w40 h150 text-right flexend black">EUR 120</p>
+						<p class="w10 h150 black">{{ $item->qty }}</p>
+
+						<p class="w40 h150 text-right flexend black">€ {{ $item->model->price }}</p>
 					</div>
+
+					@endforeach
+
+					@else
+
+					<div class="product-info-header">
+					
+						<p class="w40 h150 black">No items in cart!</p>
+
+					</div>
+
+					@endif
 
 					<div class="checkout-total-wrap">
 
 						<div class="checkout-total">
 							<div class="total-sum">
 								<p class="gray">SUBTOTAL</p>
-								<p>EUR 120</p>
+								<p>€ 120</p>
 							</div>
 
 							<div class="total-sum fatb">
@@ -96,8 +136,8 @@
 								</div>
 
 								<div class="ts-box">
-									<p class="m-0 font20">EUR 120</p>
-									<p class="m-0 t-vat text-right">EUR 30</p>
+									<p class="m-0 font20">€ 120</p>
+									<p class="m-0 t-vat text-right">€ 30</p>
 								</div>
 							</div>
 
