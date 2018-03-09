@@ -111,7 +111,7 @@
 
 								{{ csrf_field() }}
 
-								{{ method_field('DELETE') }}
+								{{ method_field('DELETE') }} 
 
 								<a class="w10 black trash" onclick="document.getElementById('cart_remove_{{$item->model->id}}').submit();"><i class="far fa-trash-alt"></i></a>
 							</form>
