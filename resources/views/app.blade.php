@@ -19,7 +19,9 @@
 
         <!-- Styles --> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ URL::asset('css/plugins/sweetalert.css') }}">
         {!! Html::style('css/app.css')!!}
+
 
          <!-- jQuery & jQuery UI-->
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
@@ -29,6 +31,7 @@
         <!-- JavaScripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="{{ URL::asset('js/sweetalert.min.js') }}"></script>
 
         <style>
             .header {
@@ -38,6 +41,23 @@
 
         <script>
             $('document').ready(function() {
+
+                //Confirm modal for delete
+                $('.del').on('click', function(e) {
+                    e.stopPropagation(); // Prevent the href from redirecting directly
+                    warnBeforeRedirect();
+                });
+
+                function warnBeforeRedirect() {
+                    swal({
+                        title: "Are you sure?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Delete!",
+                        closeOnConfirm: false
+                    });
+                }
 
                 $(window).scroll(function() {
                     var scrollBottom = $(document).height() - $(window).height() - $(window).scrollTop();

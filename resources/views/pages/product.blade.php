@@ -34,7 +34,7 @@
 
 		<form action="{{ action('CartController@store') }}" class="cart-form" method="POST">
 
-			@csrf
+			{{ csrf_field() }}
 
 			<h2 class="white">CHOOSE QUANTITY</h2>
 

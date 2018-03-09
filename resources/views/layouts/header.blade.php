@@ -14,7 +14,15 @@
         <ul class="list">
             <li class="log-li"><div class="icon-box"><i class="far fa-user-circle s2x white"></i></div> Log In</li>
             <li class="log-li"><div class="icon-box"><i class="fas fa-sign-in-alt s2x white"></i></div> Sign Up</li>
-            <li><div class="icon-box"><i class="fas fa-cart-arrow-down white"></i></div></li>
+            <li>
+                <div class="icon-box">
+                    @if(Cart::count() == 0)
+                        <i class="fas fa-cart-arrow-down white"></i>
+                    @else
+                        <span class="cart_count">{{ Cart::count() }}</span>
+                    @endif
+                </div>
+            </li>
         </ul>
     </div> 
 </div>
