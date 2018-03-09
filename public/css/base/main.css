@@ -25,6 +25,21 @@ a:link, a:focus, a:hover, a:visited {
 .redbg {
     background: #ea0d27;
 }
+.w10 {
+    width: 10%;
+}
+.w20 {
+    width: 20%;
+}
+.w30 {
+    width: 30%;
+}
+.w40 {
+    width: 40%;
+}
+.alert {
+    text-align: center;
+}
 .ul {
     text-decoration: underline;
 }

@@ -24,3 +24,5 @@ Route::get('allProducts', 'AllProductsController@index')->name('allProducts');
 Route::get('cart', 'CartController@index')->name('checkout');
 
 Route::post('cart/store', 'CartController@store');
+
+Route::resource('cart', '\App\Http\Controllers\CartController');

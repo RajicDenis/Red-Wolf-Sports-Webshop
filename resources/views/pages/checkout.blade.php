@@ -25,7 +25,7 @@
 		<div class="form-box">
 			<form action="#" id="checkout" class="check-form" method="POST">
 
-				@csrf
+				{{ csrf_field() }}
 
 				@if(session()->has('success'))
 
@@ -73,6 +73,8 @@
 
 				</div>
 
+			</form> 
+
 				<div class="form-product">
 					<h2 class="inf">Your Products</h2>
 
@@ -85,34 +87,46 @@
 
 						<p class="w10">NUMBER</p>
 
-						<p class="w40 text-right">PRICE</p>
+						<p class="w30 text-right">PRICE</p>
+
+						<p class="w10"></p>
 					</div>
 
 					@if(Cart::count() > 0)
 
 					@foreach(Cart::content() as $item)
 
-					<div class="product-info-header">
-						<p class="w20 h150 black"><img class="product-info-img" src="{{URL::asset('images/products/'.$item->model->image.'')}}"></p>
+						<div class="product-info-header">
+							<p class="w20 h150 black"><img class="product-info-img" src="{{URL::asset('images/products/'.$item->model->image.'')}}"></p>
 
-						<p class="w20 h150 black">{{ $item->model->name }}</p>
+							<p class="w20 h150 black">{{ $item->model->name }}</p>
 
-						<p class="w10 h150 black">{{ $item->options->size }}</p>
+							<p class="w10 h150 black">{{ $item->options->size }}</p>
 
-						<p class="w10 h150 black">{{ $item->qty }}</p>
+							<p class="w10 h150 black">{{ $item->qty }}</p>
 
-						<p class="w40 h150 text-right flexend black">€ {{ $item->model->price }}</p>
-					</div>
+							<p class="w30 h150 text-right flexend black">€ {{ $item->model->price }}</p>
+
+							<form class="w10 d-flex align-items-center flexend" action="{{ action('CartController@destroy', $item->rowId) }}" id="cart_remove_{{$item->model->id}}" method="POST">
+
+								{{ csrf_field() }}
+
+								{{ method_field('DELETE') }}
+
+								<a class="w10 black trash" onclick="document.getElementById('cart_remove_{{$item->model->id}}').submit();"><i class="far fa-trash-alt"></i></a>
+							</form>
+
+						</div>
 
 					@endforeach
 
 					@else
 
-					<div class="product-info-header">
-					
-						<p class="w40 h150 black">No items in cart!</p>
+						<div class="product-info-header">
+						
+							<p class="w40 h150 black">No items in cart!</p>
 
-					</div>
+						</div>
 
 					@endif
 
@@ -121,7 +135,7 @@
 						<div class="checkout-total">
 							<div class="total-sum">
 								<p class="gray">SUBTOTAL</p>
-								<p>€ 120</p>
+								<p>€ {{ Cart::subtotal() }}</p>
 							</div>
 
 							<div class="total-sum fatb">
@@ -136,8 +150,8 @@
 								</div>
 
 								<div class="ts-box">
-									<p class="m-0 font20">€ 120</p>
-									<p class="m-0 t-vat text-right">€ 30</p>
+									<p class="m-0 font20">€ {{ Cart::total() }}</p>
+									<p class="m-0 t-vat text-right">€ {{ Cart::tax() }}</p>
 								</div>
 							</div>
 
@@ -151,12 +165,11 @@
 
 						<div class="shippment-info gray">Goods are delivered within 1-3 business days</div>
 
-						<button class="pay" type="submit">PAY</button>
+						<button class="pay" onclick="document.getElementById('checkout').submit();">PAY</button>
 						
-					</div>
-				</div>
+					</div><!-- END checkout-total-wrap -->
+				</div> <!-- END form-product -->
 
-			</form>
 		</div>
 
 	</div>

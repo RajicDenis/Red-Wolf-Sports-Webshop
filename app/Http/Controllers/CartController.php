@@ -39,7 +39,7 @@ class CartController extends Controller
         Cart::add($request->pid, $request->name, $request->quantity, $request->price, ['size' => $request->size])
             ->associate('App\Product');
 
-        return view('pages.checkout')->with('success', 'Item was added to your cart!');
+        return redirect()->route('checkout')->with('success', 'Item was added to your cart!');
     }
 
     /**
@@ -84,6 +84,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        return back()->with('success', 'Item was removed from your cart!');
     }
 }
