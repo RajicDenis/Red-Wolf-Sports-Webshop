@@ -140,6 +140,17 @@
                     $('#size').val($size);
                 });
 
+                $('#cart_btn').on('click', function(e) {
+                    e.preventDefault();
+                    $chosenSize = $('#size').val();
+
+                    if($chosenSize != '') {
+                        document.getElementById('cart_form').submit();
+                    } else {
+                        $('.hide').css('display', 'block');
+                    }
+                });
+
             });
 
         </script>

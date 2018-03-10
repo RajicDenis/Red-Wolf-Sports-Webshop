@@ -32,7 +32,7 @@
 			</div>
 		</div>
 
-		<form action="{{ action('CartController@store') }}" class="cart-form" method="POST">
+		<form action="{{ action('CartController@store') }}" class="cart-form" id="cart_form" method="POST">
 
 			{{ csrf_field() }}
 
@@ -48,7 +48,9 @@
 
 			<input type="hidden" name="price" id="price" value="{{ $product->price }}">
 
-			<button class="pay crt-btn redbg" type="submit">ADD</button>
+			<button class="pay crt-btn redbg" id="cart_btn" type="submit">ADD</button>
+
+			<span class="alert alert-danger mt-3 hide">Choose size!</span>
 			
 		</form>
 

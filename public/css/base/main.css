@@ -13,6 +13,9 @@ a:link, a:focus, a:hover, a:visited {
     text-decoration: none;
     color: #1C1C1C;
 }
+.hide {
+    display: none;
+}
 .black {
     color: black !important;
 }
