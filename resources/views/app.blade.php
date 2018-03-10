@@ -16,11 +16,13 @@
         <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
         <!-- Styles --> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="{{ URL::asset('css/plugins/sweetalert.css') }}">
         {!! Html::style('css/app.css')!!}
+        @yield('css')
 
 
          <!-- jQuery & jQuery UI-->
@@ -84,7 +86,7 @@
                     }
                 })
 
-                //Change list type on All products page
+                // Change list type on All products page
                 $('.list-type-50').on('click', function() {
                     $('.list-btn').css('border', '2px solid darkgray');
                     $(this).css('border', '2px solid #1C1C1C');
@@ -116,7 +118,7 @@
                     });
                 });
 
-                //Show cart on product page
+                // Show cart on product page
                 $('.ap-basket').on('click', function() {
                     $('.addToBasket').css('right', '0px');
                     $('.test').addClass('overlay');
@@ -129,7 +131,7 @@
                     $('body').css('overflow-y', 'auto');
                 });
 
-                //Choose size on cart
+                // Choose size on cart
                 $('.size-circle').on('click', function() {
                     $('.size-circle').removeClass('selected');
                     $(this).addClass('selected');
@@ -140,6 +142,7 @@
                     $('#size').val($size);
                 });
 
+                // Front end cart validation - product size
                 $('#cart_btn').on('click', function(e) {
                     e.preventDefault();
                     $chosenSize = $('#size').val();

@@ -15,7 +15,7 @@ class CartController extends Controller
     public function index()
     {
 
-        return view('pages.checkout');
+        return view('pages.cart');
     }
 
     public function store(Request $request)
@@ -23,7 +23,7 @@ class CartController extends Controller
         Cart::add($request->pid, $request->name, $request->quantity, $request->price, ['size' => $request->size])
             ->associate('App\Product');
 
-        return redirect()->route('checkout')->with('success', 'Item was added to your cart!');
+        return redirect()->route('cart')->with('success', 'Item was added to your cart!');
     }
 
     public function destroy($id)

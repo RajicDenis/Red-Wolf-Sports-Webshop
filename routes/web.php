@@ -21,10 +21,12 @@ Route::get('product/{product}', 'ProductController@index')->name('product');
 
 Route::get('allProducts', 'AllProductsController@index')->name('allProducts');
 
-Route::get('cart', 'CartController@index')->name('checkout');
+Route::get('cart', 'CartController@index')->name('cart');
 
 Route::post('cart/store', 'CartController@store');
 
 Route::delete('cart/{id}', 'CartController@destroy');
+
+Route::get('checkout', 'CheckoutController@index');
 
 

@@ -113,4 +113,6 @@
     
 </div>
 
+@include('layouts.subscribe')
+
 @stop

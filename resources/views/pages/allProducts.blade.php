@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('css')
+	{!! Html::style('css/pages/allProducts.css') !!}
+@stop
+
 @section('content')
 
 <style>
@@ -62,5 +66,8 @@
 	</div>
 
 </div>
+
+
+@include('layouts.subscribe')
 
 @stop

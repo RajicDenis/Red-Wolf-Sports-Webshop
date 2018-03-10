@@ -1,5 +1,9 @@
 @extends('app')
 
+@section('css')
+	{!! Html::style('css/pages/checkout.css') !!}
+@stop
+
 @section('content')
 
 <style>
@@ -14,6 +18,7 @@
 	input[type=checkbox]:checked + label {
 		background-image: url({{URL::asset('images/icons/checked.png')}});
 	}
+
 </style>
 
 <div class="checkout-wrap">
@@ -49,127 +54,125 @@
 
 				<p class="req">*Required</p>
 
-				<h2 class="inf">Your Information</h2>
+				<h2 class="inf">Billing Information</h2>
 
 				<div class="form-body">
 
 					<div class="form-left">
-						<input type="text" name="name" placeholder="*Name" required>
 
-						<input type="text" name="postal" placeholder="*Postal Code" required>
+						<label for="email">*E-mail address</label>
+						<input type="email" name="email" required>
 
-						<input type="text" name="tel" placeholder="*Phone Number" required>
+						<label for="name">*Name</label>
+						<input type="text" name="name" required>
 
-						<input type="email" name="email" placeholder="*E-mail Address" required>
+						<label for="address">*Address</label>
+						<input type="text" name="address" required>
+						
+						<label for="tel">Phone number</label>
+						<input type="text" name="tel">	
+
+						<label for="postal">Postal code</label>
+						<input type="text" name="postal">
+
+						<label for="country">Country</label>
+						<input type="text" name="country" required>
+
+						<label for="company">Company</label>
+						<input type="text" name="company">
+
 					</div>
 
-					<div class="form-right">
-						<input type="text" name="address" placeholder="*Address" required>
+				</div>
 
-						<input type="text" name="country" placeholder="*Country" required>
+				<h2 class="inf">Payment Information</h2>
 
-						<input type="text" name="company" placeholder="Company" required>
+				<div class="form-body">
+
+					<div class="form-left">
+
+						<label for="card-name">*Name on Card</label>
+						<input type="text" name="card-name" required>
+
+						<label for="credit">*Credit Card Number</label>
+						<input type="text" name="credit" required>
+
 					</div>
 
 				</div>
 
 			</form> 
 
-				<div class="form-product">
-					<h2 class="inf">Your Products</h2>
+		</div>
+
+		<div class="order-box">
+			<div class="form-product">
+				<h2 class="inf">Your Order</h2>
+
+				@if(Cart::count() > 0)
+
+				@foreach(Cart::content() as $item)
 
 					<div class="product-info-header">
-						<p class="w20">PRODUCT</p>
+						<p class="w20 h150 black"><img class="product-info-img" src="{{URL::asset('images/products/'.$item->model->image.'')}}"></p>
+						
+						<div class="order-desc w70">
 
-						<p class="w20">NAME</p>
+							<p class="black">{{ $item->model->name }}</p>
 
-						<p class="w10">SIZE</p>
+							<p class="black">Size: {{ $item->options->size }}</p>
 
-						<p class="w10">NUMBER</p>
+							<p class="black">Price: € {{ $item->model->price }}</p>
 
-						<p class="w30 text-right">PRICE</p>
+						</div>
 
-						<p class="w10"></p>
+						<p class="w10 h150 black">{{ $item->qty }}</p>
+
 					</div>
 
-					@if(Cart::count() > 0)
+				@endforeach
 
-					@foreach(Cart::content() as $item)
+				@else
 
-						<div class="product-info-header">
-							<p class="w20 h150 black"><img class="product-info-img" src="{{URL::asset('images/products/'.$item->model->image.'')}}"></p>
+					<div class="product-info-header">
+					
+						<p class="w40 h150 black">No items in cart!</p>
 
-							<p class="w20 h150 black">{{ $item->model->name }}</p>
+					</div>
 
-							<p class="w10 h150 black">{{ $item->options->size }}</p>
+				@endif
 
-							<p class="w10 h150 black">{{ $item->qty }}</p>
+				<div class="checkout-total-wrap">
 
-							<p class="w30 h150 text-right flexend black">€ {{ $item->model->price }}</p>
-
-							<form class="w10 d-flex align-items-center flexend" action="{{ action('CartController@destroy', $item->rowId) }}" id="cart_remove_{{$item->model->id}}" method="POST">
-
-								{{ csrf_field() }}
-
-								{{ method_field('DELETE') }} 
-
-								<a class="w10 black trash" onclick="document.getElementById('cart_remove_{{$item->model->id}}').submit();"><i class="far fa-trash-alt"></i></a>
-							</form>
-
+					<div class="checkout-total">
+						<div class="total-sum">
+							<p class="gray">SUBTOTAL</p>
+							<p>€ {{ Cart::subtotal() }}</p>
 						</div>
 
-					@endforeach
-
-					@else
-
-						<div class="product-info-header">
-						
-							<p class="w40 h150 black">No items in cart!</p>
-
+						<div class="total-sum fatb">
+							<p class="gray">SHIPPING</p>
+							<p>FREE</p>
 						</div>
 
-					@endif
-
-					<div class="checkout-total-wrap">
-
-						<div class="checkout-total">
-							<div class="total-sum">
-								<p class="gray">SUBTOTAL</p>
-								<p>€ {{ Cart::subtotal() }}</p>
+						<div class="total-sum">
+							<div class="ts-box">
+								<p class="m-0 font20">TOTAL</p>
+								<p class="m-0 t-vat">OF WHICH VAT</p>
 							</div>
 
-							<div class="total-sum fatb">
-								<p class="gray">SHIPPING</p>
-								<p>FREE</p>
+							<div class="ts-box">
+								<p class="m-0 font20">€ {{ Cart::total() }}</p>
+								<p class="m-0 t-vat text-right">€ {{ Cart::tax() }}</p>
 							</div>
-
-							<div class="total-sum">
-								<div class="ts-box">
-									<p class="m-0 font20">TOTAL</p>
-									<p class="m-0 t-vat">OF WHICH VAT</p>
-								</div>
-
-								<div class="ts-box">
-									<p class="m-0 font20">€ {{ Cart::total() }}</p>
-									<p class="m-0 t-vat text-right">€ {{ Cart::tax() }}</p>
-								</div>
-							</div>
-
 						</div>
 
-						<div class="conditions">
-							<!--<div><input type="checkbox" name="conditions" required>Accept conditions</div>-->
-							<input type='checkbox' name='thing' value='valuable' id="thing"/><label for="thing"></label> 
-							<p class="ml-4 cond-txt">Accept conditions</p>
-						</div>
+					</div>
 
-						<div class="shippment-info gray">Goods are delivered within 1-3 business days</div>
-
-						<button class="pay" onclick="document.getElementById('checkout').submit();">PAY</button>
-						
-					</div><!-- END checkout-total-wrap -->
-				</div> <!-- END form-product -->
-
+					<div class="shippment-info mt-5 gray">Goods are delivered within 1-3 business days</div>
+					
+				</div><!-- END checkout-total-wrap -->
+			</div> <!-- END form-product -->
 		</div>
 
 	</div>
