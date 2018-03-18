@@ -43,7 +43,7 @@
 
             <p class="p-desc">{{ $product->short }}</p>
 
-            <a href="{{ action('ProductController@index', $product->slug) }}" class="btn-a buy price">{{ $product->price }}</a>
+            <a href="{{ action('ProductController@index', $product->slug) }}" class="btn-a buy price">€ {{ $product->price }}</a>
 
             <p class="vat">Excl. VAT</p>
 

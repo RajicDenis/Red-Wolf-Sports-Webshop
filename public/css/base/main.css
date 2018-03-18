@@ -54,6 +54,9 @@ a:link, a:focus, a:hover, a:visited {
 .ul {
     text-decoration: underline;
 }
+.fdc {
+    flex-direction: column;
+}
 .white-to-black:hover {
     background: #1C1C1C;
     color: white;
@@ -70,4 +73,33 @@ a:link, a:focus, a:hover, a:visited {
     background: rgba(8,8,8,0.6);
     z-index: 1000;
     transition: all 0.3s ease-in-out;
+}
+.pay {
+    height: 45px;
+    width: 300px;
+    border-radius: 20px;
+    background: #1C1C1C;
+    color: white;
+    font-size: 18px;
+    margin-top: 30px;
+    transition: all 0.3s ease-in-out;
+}
+.pay:hover {
+    background: #ea0d27 !important;
+}
+
+.order_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00cc00;
+    color: white;
+    height: 40px;
+    width: 100%;
+    margin-top: 30px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+}
+.order_btn:hover {
+    background: #00e600;
 }

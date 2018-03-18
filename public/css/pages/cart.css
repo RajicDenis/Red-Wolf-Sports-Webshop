@@ -1,3 +1,15 @@
+.check-banner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 350px;
+	background: #1F1F1F;
+	color: white;
+}
+.check-txt {
+	margin-top: 50px;
+	font-size: 40px;
+}
 .check-info {
 	display: flex;
 	align-items: center;
@@ -88,17 +100,7 @@
 	margin-top: 20px;
 }
 .pay {
-	height: 45px;
-	width: 300px;
-	border-radius: 20px;
 	background: #1C1C1C;
-	color: white;
-	font-size: 18px;
-	margin-top: 30px;
-	transition: all 0.3s ease-in-out;
-}
-.pay:hover {
-	background: #ea0d27;
 }
 
 /*Checkbox*/

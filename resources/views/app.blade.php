@@ -33,6 +33,7 @@
         <!-- JavaScripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
         <script src="{{ URL::asset('js/sweetalert.min.js') }}"></script>
 
         <style>
@@ -166,6 +167,8 @@
         @yield('content')
 
         @include('layouts.footer')
+
+        @yield('js')
         
     </body>
 </html>

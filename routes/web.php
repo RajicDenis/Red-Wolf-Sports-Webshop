@@ -29,4 +29,6 @@ Route::delete('cart/{id}', 'CartController@destroy');
 
 Route::get('checkout', 'CheckoutController@index');
 
+Route::post('checkout/store', 'CheckoutController@store');
+
 

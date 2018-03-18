@@ -28,7 +28,7 @@
 	<div class="check-info">
 		
 		<div class="form-box">
-			<form action="#" id="checkout" class="check-form" method="POST">
+			<form action="{{ action('CheckoutController@store') }}" id="payment_form" class="check-form" method="POST">
 
 				{{ csrf_field() }}
 
@@ -42,10 +42,10 @@
 
 				@if(count($errors) > 0)
 	
-					<div class="alert alert-danger">
-						<ul>
+					<div class="alert alert-danger centered">
+						<ul class="d-flex fdc">
 						@foreach($errors->all() as $error)
-							<li>{{ $error }}</li>
+							<li class="black">{{ $error }}</li>
 						@endforeach
 						</ul>
 					</div>
@@ -61,25 +61,25 @@
 					<div class="form-left">
 
 						<label for="email">*E-mail address</label>
-						<input type="email" name="email" required>
+						<input type="email" id="email" name="email" required>
 
 						<label for="name">*Name</label>
-						<input type="text" name="name" required>
+						<input type="text" id="name" name="name" required>
 
 						<label for="address">*Address</label>
-						<input type="text" name="address" required>
+						<input type="text" id="address" name="address">
 						
 						<label for="tel">Phone number</label>
-						<input type="text" name="tel">	
+						<input type="text" id="tel" name="tel">	
 
 						<label for="postal">Postal code</label>
-						<input type="text" name="postal">
+						<input type="text" id="postal" name="postal">
 
-						<label for="country">Country</label>
-						<input type="text" name="country" required>
+						<label for="city">City</label>
+						<input type="text" id="city" name="city">
 
 						<label for="company">Company</label>
-						<input type="text" name="company">
+						<input type="text" id="company" name="company">
 
 					</div>
 
@@ -92,10 +92,17 @@
 					<div class="form-left">
 
 						<label for="card-name">*Name on Card</label>
-						<input type="text" name="card-name" required>
+						<input type="text" id="card_name" name="card-name" required>
 
-						<label for="credit">*Credit Card Number</label>
-						<input type="text" name="credit" required>
+						<label for="card-element">Credit or debit card</label>
+					    <div id="card-element">
+					      <!-- A Stripe Element will be inserted here. -->
+					    </div>
+
+					    <!-- Used to display form errors. -->
+					    <div id="card-errors" role="alert"></div>
+
+					    <button type="submit" id="order_btn" class="order_btn">COMPLETE ORDER</button>
 
 					</div>
 
@@ -178,5 +185,103 @@
 	</div>
 
 </div>
+
+@stop
+
+@section('js')
+
+<script>
+	
+	(function() {
+
+		// Create a Stripe client.
+		var stripe = Stripe('pk_test_rHtOGSMVZ5qKhuIPcWKBQPYA');
+
+		// Create an instance of Elements.
+		var elements = stripe.elements();
+
+		// Custom styling can be passed to options when creating an Element.
+		// (Note that this demo uses a wider set of styles than the guide below.)
+		var style = {
+		  base: {
+		    color: '#32325d',
+		    lineHeight: '18px',
+		    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+		    fontSmoothing: 'antialiased',
+		    fontSize: '16px',
+		    '::placeholder': {
+		      color: '#aab7c4'
+		    }
+		  },
+		  invalid: {
+		    color: '#fa755a',
+		    iconColor: '#fa755a'
+		  }
+		};
+
+		// Create an instance of the card Element.
+		var card = elements.create('card', {
+			style: style,
+			hidePostalCode: true 
+		});
+
+		// Add an instance of the card Element into the `card-element` <div>.
+		card.mount('#card-element');
+
+		// Handle real-time validation errors from the card Element.
+		card.addEventListener('change', function(event) {
+		  var displayError = document.getElementById('card-errors');
+		  if (event.error) {
+		    displayError.textContent = event.error.message;
+		  } else {
+		    displayError.textContent = '';
+		  }
+		});
+
+		// Handle form submission.
+		var form = document.getElementById('payment_form');
+		form.addEventListener('submit', function(event) {
+		  event.preventDefault();
+
+		  document.getElementById('order_btn').disabled = true;
+
+		  var options = {
+		  	name: document.getElementById('name').value,
+		  	address_line1: document.getElementById('address').value,
+		  	address_city: document.getElementById('city').value,
+		  	address_zip: document.getElementById('postal').value,
+		  }
+
+		  stripe.createToken(card, options).then(function(result) {
+		    if (result.error) {
+		      // Inform the user if there was an error.
+		      var errorElement = document.getElementById('card-errors');
+		      errorElement.textContent = result.error.message;
+
+		      document.getElementById('order_btn').disabled = false;
+
+		    } else {
+		      // Send the token to your server.
+		      stripeTokenHandler(result.token);
+		    }
+		  });
+		});
+
+		function stripeTokenHandler(token) {
+			// Insert the token ID into the form so it gets submitted to the server
+			var form = document.getElementById('payment_form');
+			var hiddenInput = document.createElement('input');
+			hiddenInput.setAttribute('type', 'hidden');
+			hiddenInput.setAttribute('name', 'stripeToken');
+			hiddenInput.setAttribute('value', token.id);
+			form.appendChild(hiddenInput);
+
+			// Submit the form
+			form.submit();
+		}
+
+	})()
+
+</script>
 
 @stop

@@ -82,6 +82,9 @@
 	width: 100%;
 	position: fixed;
 }
+.pay {
+	background: #ea0d27;
+}
 
 .size-box {
 	display: flex;
