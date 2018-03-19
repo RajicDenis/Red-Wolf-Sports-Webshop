@@ -32,3 +32,9 @@ Route::get('checkout', 'CheckoutController@index');
 Route::post('checkout/store', 'CheckoutController@store');
 
 
+Route::get('login', function() {
+	return view('pages.login');
+});
+
+
+
