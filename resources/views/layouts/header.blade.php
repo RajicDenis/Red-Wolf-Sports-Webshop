@@ -12,7 +12,7 @@
 
    <div class="nav2">
         <ul class="list">
-            <li class="log-li"><div class="icon-box"><i class="far fa-user-circle s2x white"></i></div> Log In</li>
+            <a href="{{ route('login') }}" class="white"><li class="log-li"><div class="icon-box"><i class="far fa-user-circle s2x white"></i></div> Log In</li></a>
             <li class="log-li"><div class="icon-box"><i class="fas fa-sign-in-alt s2x white"></i></div> Sign Up</li>
             <li>
                 <a href="{{ route('cart') }}" class="icon-box white">

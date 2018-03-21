@@ -31,10 +31,16 @@ Route::get('checkout', 'CheckoutController@index');
 
 Route::post('checkout/store', 'CheckoutController@store');
 
+Route::post('register', 'AuthenticationController@register');
+
 
 Route::get('login', function() {
 	return view('pages.login');
-});
+})->name('login');
+
+Route::get('register', function() {
+	return view('pages.register');
+})->name('register');
 
 
 
