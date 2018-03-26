@@ -33,6 +33,10 @@ Route::post('checkout/store', 'CheckoutController@store');
 
 Route::post('register', 'AuthenticationController@register');
 
+Route::post('login', 'AuthenticationController@login');
+
+Route::get('logout', 'AuthenticationController@logout');
+
 
 Route::get('login', function() {
 	return view('pages.login');

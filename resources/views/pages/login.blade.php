@@ -25,7 +25,7 @@
 				<div class="error-login">{{ Session('error') }}</div>
 		@endif
 
-		<form action="#" class="form-signin" method="POST">
+		<form action="{{ action('AuthenticationController@login') }}" class="form-signin" method="POST">
 
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 

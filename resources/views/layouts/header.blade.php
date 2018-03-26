@@ -12,8 +12,13 @@
 
    <div class="nav2">
         <ul class="list">
-            <a href="{{ route('login') }}" class="white"><li class="log-li"><div class="icon-box"><i class="far fa-user-circle s2x white"></i></div> Log In</li></a>
-            <li class="log-li"><div class="icon-box"><i class="fas fa-sign-in-alt s2x white"></i></div> Sign Up</li>
+            @if(Sentinel::check() == true)
+                <li class="log-li"><a href="{{ action('AuthenticationController@logout') }}"><div class="icon-box"><i class="fas fa-power-off s2x white"></i></div></a>{{ ucfirst(Sentinel::getUser()->username) }}</li>
+            @else
+                <a href="{{ route('login') }}" class="white"><li class="log-li"><div class="icon-box"><i class="far fa-user-circle s2x white"></i></div> Log In</li></a>
+                <a href="{{ route('register') }}" class="white"><li class="log-li"><div class="icon-box"><i class="fas fa-sign-in-alt s2x white"></i></div> Sign Up</li></a>
+            @endif
+            
             <li>
                 <a href="{{ route('cart') }}" class="icon-box white">
                     @if(Cart::count() == 0)
