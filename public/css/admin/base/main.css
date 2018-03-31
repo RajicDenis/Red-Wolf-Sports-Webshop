@@ -1,0 +1,71 @@
+
+body {
+	font-family: 'Fira Sans', sans-serif;
+	color: #202020;
+}
+a {
+	color: #202020 !important;
+	text-decoration: none !important;
+}
+
+.admin_wrap {
+      display: flex;
+      flex-direction: row;
+}
+.control_panel {
+	display: flex;
+	
+	flex-direction: column;
+	width: 100px;
+	min-height: 100vh;
+	background-color: #2D343A;
+}
+.img_wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+}
+.cp_img {
+	width: 70px;
+	height: 70px;
+}
+.cp_options {
+	width: 100%;
+	height: calc(100vh - 100px);
+}
+
+.admin_page {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+.admin_top {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 70px;
+	border-bottom: 1px solid lightgray;
+}
+.at-right, .at-left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.at-right {
+	height: 100%;
+	margin-right: 50px;
+}
+.at-left {
+	height: 100%;
+	margin-left: 50px;
+}
+.breadcrumb-title {
+	font-size: 17px;
+    font-weight: 600;
+}
+.small_user_img {
+	width: 30px;
+	height: 30px;
+}

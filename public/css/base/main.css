@@ -21,6 +21,10 @@ a:link, a:focus, a:hover, a:visited {
     justify-content: center;
     align-items: center;
 }
+.disable {
+    pointer-events: none;
+    background: rgba(8,8,8,0.5) !important;
+}
 .black {
     color: black !important;
 }

@@ -47,4 +47,5 @@ Route::get('register', function() {
 })->name('register');
 
 
-
+//Admin routes
+Route::get('admin', 'Admin\AdminController@index')->name('admin_home');

@@ -56,7 +56,7 @@
 
 					<p class="w10 h150 black">{{ $item->qty }}</p>
 
-					<p class="w30 h150 text-right flexend black">€ {{ $item->model->price }}</p>
+					<p class="w30 h150 text-right flexend black">€ {{ $item->subtotal() }}</p>
 
 					<form class="w10 d-flex align-items-center flexend" action="{{ action('CartController@destroy', $item->rowId) }}" id="cart_remove_{{$item->model->id}}" method="POST">
 
@@ -110,13 +110,13 @@
 
 				<div class="conditions">
 					<!--<div><input type="checkbox" name="conditions" required>Accept conditions</div>-->
-					<input type='checkbox' name='thing' value='valuable' id="thing"/><label for="thing"></label> 
+					<input type='checkbox' name='accept_cond' value='valuable' id="accept_cond"/><label for="accept_cond"></label> 
 					<p class="ml-4 cond-txt">Accept conditions</p>
 				</div>
 
 				<div class="shippment-info gray">Goods are delivered within 1-3 business days</div>
 
-				<a href="{{ action('CheckoutController@index') }}" class="pay white centered">CHECKOUT</a>
+				<a href="{{ action('CheckoutController@index') }}" id="checkout_btn" class="pay white centered disable">CHECKOUT</a>
 				
 			</div><!-- END checkout-total-wrap -->
 		</div> <!-- END form-product -->

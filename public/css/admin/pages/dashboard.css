@@ -1,0 +1,6 @@
+
+.admin_container {
+	width: 100%;
+    min-height: calc(100vh - 70px);
+    padding: 50px;
+}

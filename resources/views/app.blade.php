@@ -45,6 +45,15 @@
         <script>
             $('document').ready(function() {
 
+                $('#accept_cond').on('change', function() {
+                    if($('#accept_cond').is(':checked') == true) {
+                        $('#checkout_btn').removeClass('disable');
+                    } else {
+                        $('#checkout_btn').addClass('disable');
+                    }
+                });
+                
+
                 //Confirm modal for delete
                 $('.del').on('click', function(e) {
                     e.stopPropagation(); // Prevent the href from redirecting directly
