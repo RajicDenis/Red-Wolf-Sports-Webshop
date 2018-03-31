@@ -11,4 +11,10 @@ class Product extends Model
     	return $this->hasMany('App\Gallery');
 
     }
+
+    public function orders() {
+
+    	return $this->belongsToMany('App\Order')->withTimestamps();
+
+    }
 }

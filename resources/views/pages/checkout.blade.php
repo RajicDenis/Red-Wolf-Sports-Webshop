@@ -69,8 +69,8 @@
 						<label for="address">*Address</label>
 						<input type="text" id="address" name="address">
 						
-						<label for="tel">Phone number</label>
-						<input type="text" id="tel" name="tel">	
+						<label for="phone">Phone number</label>
+						<input type="text" id="phone" name="phone">	
 
 						<label for="postal">Postal code</label>
 						<input type="text" id="postal" name="postal">

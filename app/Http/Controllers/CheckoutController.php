@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CheckoutRequest;
 use Cart;
 use Stripe;
+use Sentinel;
+use App\Order;
 use \Cartalyst\Stripe\Exception\CardErrorException;
 
 class CheckoutController extends Controller
@@ -36,12 +38,31 @@ class CheckoutController extends Controller
 	    		],
 	    	]);
 
+            $order = new Order;
+
+            $order->user_id = Sentinel::getUser()->id;
+            $order->email = $request->email;
+            $order->name = $request->name;
+            $order->address = $request->address;
+            $order->city = $request->city;
+            $order->phone = $request->phone;
+            $order->subtotal = Cart::subtotal();
+            $order->tax = Cart::tax();
+            $order->total = Cart::total();
+            $order->error = null;
+
+            $order->save();
+
 	    	//Success
 	    	Cart::destroy();
 
 	    	return redirect()->back()->with('success', 'Your order was successfully completed!');
 
     	} catch (CardErrorException $e) {
+
+            Order::create([
+                'error' => $e->getMessage()
+            ]);
 
     		return back()->withErrors('Error! ' . $e->getMessage());
 
