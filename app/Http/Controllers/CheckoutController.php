@@ -7,6 +7,7 @@ use App\Http\Requests\CheckoutRequest;
 use Cart;
 use Stripe;
 use Sentinel;
+use App\OrderProduct;
 use App\Order;
 use \Cartalyst\Stripe\Exception\CardErrorException;
 
@@ -52,6 +53,14 @@ class CheckoutController extends Controller
             $order->error = null;
 
             $order->save();
+
+            foreach(Cart::content() as $item) {
+                OrderProduct::create([
+                    'order_id' => $order->id,
+                    'product_id' => $item->model->id,
+                    'quantity' => $item->qty,
+                ]);
+            }
 
 	    	//Success
 	    	Cart::destroy();
