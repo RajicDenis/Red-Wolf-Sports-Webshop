@@ -45,7 +45,15 @@
 				
 				<div class="img_wrap"><img class="cp_img" src="{{ URL::asset('images/users/user-default.jpg') }}"></div>
 
-				<div class="cp_options"></div>
+				<div class="cp_options">
+					
+					@foreach($tables as $table)
+			
+						<a href="#"><div class="option-list-item">{{ str_replace('_', ' ', ucfirst($table)) }}</div></a>
+
+					@endforeach
+
+				</div>
 
 			</div>
 

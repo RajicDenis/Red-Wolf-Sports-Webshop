@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
+
+use Illuminate\Http\Request;
+use DB;
 
 class AdminController extends Controller
 {
     public function index() {
 
-    	return view('admin.pages.dashboard');
+    	$tables = DB::select('SHOW TABLES');
+    	$tables = array_map('current', $tables);
+
+    	return view('admin.pages.dashboard')->withTables($tables);
 
     }
 }
