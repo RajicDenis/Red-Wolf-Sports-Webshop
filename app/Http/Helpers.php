@@ -15,4 +15,12 @@ class Helpers
 
 	}
 
+	public static function numericTypes() {
+
+		$types = ['integer', 'tinyint', 'smallint', 'mediumint', 'int', 'bigint', 'decimal', 'float', 'double'];
+
+		return $types;
+
+	}
+
 }

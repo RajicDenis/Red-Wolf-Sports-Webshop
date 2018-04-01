@@ -23,13 +23,19 @@
 				@foreach($tableName as $t)
 				<div class="form-group">
 					<label for="{{ $t }}">{{ str_replace('_', ' ', ucfirst($t)) }}</label>
-					@if(App\Http\Helpers::getFieldType($selectedTable, $t) == 'integer')
-						<input type="number" name="{{ $t }}">
-					@else
-						<input type="text" name="{{ $t }}">
+					@if(in_array(Helpers::getFieldType($selectedTable, $t), Helpers::numericTypes()))
+						<input class="custom_input" type="number" name="{{ $t }}">
+					@elseif($t == 'email')
+						<input class="custom_input" type="email" name="{{ $t }}">
+					@elseif(Helpers::getFieldType($selectedTable, $t) == 'text')
+						<textarea name="{{ $t }}" rows="5"></textarea>
+					@else 
+						<input class="custom_input" type="text" name="{{ $t }}">
 					@endif
 				</div>
 				@endforeach
+
+				<button class="btn btn-success">Save</button>
 
 			</form>
 
