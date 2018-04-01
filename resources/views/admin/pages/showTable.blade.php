@@ -8,7 +8,7 @@
 
 		<div class="st-name">{{ $selectedTable}}</div>
 
-		<a href="#" class="green_btn add-custom">Add New</a>
+		<a href="{{ action('Admin\AdminController@addToTable', ['slug' => $selectedTable]) }}" class="green_btn add-custom">Add New</a>
 
 	</div>
 
@@ -21,17 +21,28 @@
 					@foreach($tableName as $t)
 						<th>{{ $t }}</th>
 					@endforeach
+						<th></th>
 				</tr>
 			</thead>
 
 			<tbody>
-				@foreach($tableData as $t)
+				@if(count($tableData) != 0)
+					@foreach($tableData as $t)
+						<tr>
+							@foreach($tableName as $tbl)
+								<td>{{ $t->$tbl }}</td>
+							@endforeach
+								<td style="text-align: right;">
+									<a href="#" class="btn btn-warning"><i class="fas fa-pencil-alt white"></i></a>
+									<a href="#" class="btn btn-danger"><i class="fas fa-trash white"></i></a>
+								</td>
+						</tr>
+					@endforeach
+				@else
 					<tr>
-						@foreach($tableName as $tbl)
-							<td>{{ $t->$tbl }}</td>
-						@endforeach
+						<td style="text-align: center;" colspan="{{ count($tableName) }}">The table is empty!</td>
 					</tr>
-				@endforeach
+				@endif
 			</tbody>
 			
 		</table>
@@ -46,7 +57,11 @@
 		
 		$(document).ready(function() {
 
-			$('#admin_table').dataTable();
+			$('#admin_table').dataTable({
+				"columnDefs": [
+				    { "orderable": false, "targets": [6] }
+				]
+			});
 
 			// Edit datatables css 
 			$('#admin_table_wrapper > .row').each(function($index) {

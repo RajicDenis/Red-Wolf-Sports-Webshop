@@ -7,6 +7,9 @@ a {
 	color: #202020 !important;
 	text-decoration: none !important;
 }
+.white {
+	color: white !important;
+}
 
 .admin_wrap {
       display: flex;

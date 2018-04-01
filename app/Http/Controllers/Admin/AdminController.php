@@ -29,12 +29,30 @@ class AdminController extends Controller
 
     	$tableName = array_diff(Schema::getColumnListing($tbl), ['password', 'permissions', 'created_at', 'updated_at']);
     	$tableData = DB::table(''.$tbl.'')->get();
-  
-    	return view('admin.pages.showTable')
-    		->withTables($tables)
-    		->withSelectedTable($selectedTable)
-    		->withTableData($tableData)
-    		->withTableName($tableName);
+
+		return view('admin.pages.showTable')
+			->withTables($tables)
+			->withSelectedTable($selectedTable)
+			->withTableData($tableData)
+			->withTableName($tableName);
+ 	
+    }
+
+    public function addToTable(Request $request) {
+
+    	$tables = $this->getTables();
+
+    	$selectedTable = $request->slug;
+    	$tbl = lcfirst($request->slug);
+
+    	$tableName = array_diff(Schema::getColumnListing($tbl), ['id', 'last_login', 'password', 'permissions', 'created_at', 'updated_at']);
+    	$tableData = DB::table(''.$tbl.'')->get();
+
+    	return view('admin.pages.addToTable')
+			->withTables($tables)
+			->withSelectedTable($selectedTable)
+			->withTableData($tableData)
+			->withTableName($tableName);
 
     }
 
@@ -42,6 +60,8 @@ class AdminController extends Controller
 
     	$tables = DB::select('SHOW TABLES');
     	$tables = array_map('current', $tables);
+
+    	$tables = array_diff($tables, ['migrations', 'persistences', 'throttle', 'activations', 'reminders']);
 
     	return $tables;
     }

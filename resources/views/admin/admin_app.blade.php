@@ -68,8 +68,8 @@
 				<div class="admin_top">
 					
 					<div class="at-left">
-						<a href="#"><i class="fas fa-bars fa-2x"></i></a>
-						<span class="breadcrumb-title ml-5">Dashboard</span>
+						<a href="{{ route('admin_home') }}"><i class="fas fa-home fa-2x"></i></a>
+						<span class="breadcrumb-title ml-5">SyAdmin</span>
 					</div>
 
 					<div class="at-right">
