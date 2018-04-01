@@ -12,15 +12,15 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Contrail+One" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 
         <!-- Styles --> 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- DataTables -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+
         <link rel="stylesheet" href="{{ URL::asset('css/plugins/sweetalert.css') }}">
         {{ Html::style('css/admin/admin_app.css') }}
         @yield('css')
@@ -34,6 +34,12 @@
         <!-- JavaScripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+        <!-- DataTables -->
+        <script src="//code.jquery.com/jquery-1.12.3.js"></script>
+        <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+
         <script src="{{ URL::asset('js/sweetalert.min.js') }}"></script>
 
     </head>
@@ -49,7 +55,7 @@
 					
 					@foreach($tables as $table)
 			
-						<a href="#"><div class="option-list-item">{{ str_replace('_', ' ', ucfirst($table)) }}</div></a>
+						<a href="{{ action('Admin\AdminController@showTable', ['slug' => ucfirst($table)]) }}"><div class="option-list-item">{{ str_replace('_', ' ', ucfirst($table)) }}</div></a>
 
 					@endforeach
 
@@ -72,7 +78,11 @@
 
 				</div>
 
-				@yield('content')
+                <div class="admin_container">
+
+				    @yield('content')
+
+                </div>
 
 			</div>
 

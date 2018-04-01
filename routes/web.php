@@ -49,3 +49,5 @@ Route::get('register', function() {
 
 //Admin routes
 Route::get('admin', 'Admin\AdminController@index')->name('admin_home');
+
+Route::get('admin/show{slug}', 'Admin\AdminController@showTable')->name('admin_showTable');

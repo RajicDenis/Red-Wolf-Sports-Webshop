@@ -1,0 +1,41 @@
+.st-head, .st-name, .add_btn {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.st-head {
+	padding-bottom: 50px;
+    border-bottom: 1px solid lightgray;
+}
+.st-name {
+	font-size: 20px;
+	font-weight: 600;
+	margin-left: 20px;
+}
+.add-custom {
+	padding: 8px 25px;
+	margin-left: 30px;
+	border-radius: 8px;
+}
+
+/* Table */
+#table-wrap {
+    margin-top: 70px;
+}
+#admin_table {
+	width: 100%;
+}
+
+/* DataTable */
+tbody > tr {
+	height: 70px;
+}
+#admin_table_length > label {
+	justify-content: flex-start;
+}
+#admin_table_filter > label {
+	justify-content: flex-end;
+}
+.input-sm {
+	margin: 0 10px;
+}
