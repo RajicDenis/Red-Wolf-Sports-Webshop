@@ -23,7 +23,7 @@
 
 		<div class="add-form">
 			
-			<div class="af-title">Add Data to {{ $selectedTable }} table</div>
+			<div class="af-title">Edit Data in {{ $selectedTable }} table</div>
 
 			<form id="add_form" action="{{ action('Admin\AdminController@store') }}" method="POST" enctype="multipart/form-data">
 				
@@ -39,19 +39,19 @@
 
 						@if(in_array(Helpers::getFieldType($selectedTable, $t), Helpers::numericTypes()))
 
-							<input class="custom_input" type="number" name="{{ $t }}" required>
+							<input class="custom_input" type="number" name="{{ $t }}" value="{{ $tableData->$t }}" required>
 
 						@elseif($t == 'email')
 
-							<input class="custom_input" type="email" name="{{ $t }}" required>
+							<input class="custom_input" type="email" name="{{ $t }}" value="{{ $tableData->$t }}" required>
 
 						@elseif(Helpers::getFieldType($selectedTable, $t) == 'text')
 
-							<textarea name="{{ $t }}" rows="5"></textarea>
+							<textarea name="{{ $t }}" rows="5">{{ $tableData->$t }}</textarea>
 
 						@elseif(Helpers::getFieldType($selectedTable, $t) == 'date')
 
-							<input type="date" name="{{ $t }}">
+							<input type="date" name="{{ $t }}" value="{{ $tableData->$t }}">
 
 						@elseif($t == 'image' || $t == 'picture' || $t == 'img')
 
@@ -61,7 +61,7 @@
 
 						@else
 
-							<input class="custom_input" type="text" name="{{ $t }}">
+							<input class="custom_input" type="text" name="{{ $t }}" value="{{ $tableData->$t }}">
 
 						@endif
 					</div>

@@ -30,10 +30,14 @@
 					@foreach($tableData as $t)
 						<tr>
 							@foreach($tableName as $tbl)
-								<td>{{ $t->$tbl }}</td>
+								@if($tbl != 'image')
+									<td>{{ $t->$tbl }}</td>
+								@else
+									<td><img style="width: 80px; height: 80px;" src="{{ URL::asset('images/'.$selectedTable.'/'.$t->$tbl.'') }}"></td>
+								@endif
 							@endforeach
-								<td style="text-align: right;">
-									<a href="#" class="btn btn-warning"><i class="fas fa-pencil-alt white"></i></a>
+								<td style="text-align: right; width: 120px;">
+									<a href="{{ action('Admin\AdminController@addToTable', ['slug' => $selectedTable, 'pid' => $t->id]) }}" class="btn btn-warning"><i class="fas fa-pencil-alt white"></i></a>
 									<a href="#" class="btn btn-danger"><i class="fas fa-trash white"></i></a>
 								</td>
 						</tr>

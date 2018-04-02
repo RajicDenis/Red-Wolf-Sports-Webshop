@@ -60,13 +60,28 @@ class AdminController extends Controller
     	$tbl = lcfirst($request->slug);
 
     	$tableName = array_diff(Schema::getColumnListing($tbl), ['id', 'last_login', 'permissions', 'created_at', 'updated_at']);
-    	$tableData = DB::table(''.$tbl.'')->get();
+    	
 
-    	return view('admin.pages.addToTable')
-			->withTables($tables)
-			->withSelectedTable($selectedTable)
-			->withTableData($tableData)
-			->withTableName($tableName);
+    	if($request->pid == null) {
+
+    		$tableData = DB::table(''.$tbl.'')->get();
+
+			return view('admin.pages.addToTable')
+				->withTables($tables)
+				->withSelectedTable($selectedTable)
+				->withTableData($tableData)
+				->withTableName($tableName);
+				
+    	} else {
+
+    		$tableData = DB::table(''.$tbl.'')->where('id', $request->pid)->first();
+
+    		return view('admin.pages.editTable')
+	    		->withTables($tables)
+				->withSelectedTable($selectedTable)
+				->withTableData($tableData)
+				->withTableName($tableName);
+    	}	
 
     }
 
@@ -75,6 +90,7 @@ class AdminController extends Controller
     	$values = array_slice($request->all(), 2);
 
     	if($request->image != null) {
+
 			unset($values['image']);
 			unset($values['destination']);
 
@@ -84,6 +100,11 @@ class AdminController extends Controller
 			$file->move($destination, $fileName);
 
 			$values['image'] = $fileName;
+			
+    	} else {
+
+    		unset($values['image']);
+
     	}
 
     	if($request->password != null) {
