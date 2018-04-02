@@ -23,4 +23,12 @@ class Helpers
 
 	}
 
+	public static function getTableCount($table) {
+
+		$count = count(DB::table($table)->get());
+
+		return $count;
+
+	}
+
 }

@@ -6,7 +6,7 @@
 
 		<div class="st-icon"><i class="fas fa-users fa-3x"></i></div>
 
-		<div class="st-name">{{ $selectedTable}}</div>
+		<div class="st-name">{{ ucfirst($selectedTable) }}</div>
 
 		<a href="{{ action('Admin\AdminController@addToTable', ['slug' => $selectedTable]) }}" class="green_btn add-custom">Add New</a>
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller as Controller;
 use Illuminate\Http\Request;
 use DB;
 use Schema;
+use Carbon\Carbon;
 use App\User;
 
 class AdminController extends Controller
@@ -14,9 +15,21 @@ class AdminController extends Controller
 
     public function index() {
 
-    	$tables = $this->getTables();
+    	$tables = $this->getTables('roles');
 
-    	return view('admin.pages.dashboard')->withTables($tables);
+    	$featured = array_filter($tables, function($value) {
+
+    		if(strpos($value, '_') == false) {
+    			return $value;
+    		}
+
+    	});
+
+    	rsort($featured);
+
+    	return view('admin.pages.dashboard')
+    		->withTables($tables)
+    		->withFeatured($featured);
 
     }
 
@@ -56,12 +69,37 @@ class AdminController extends Controller
 
     }
 
-    private function getTables() {
+    public function store(Request $request) {
+
+    	$values = array_slice($request->all(), 2);
+
+    	if($request->image != null) {
+			unset($values['image']);
+			unset($values['destination']);
+
+			$file = $request->image;
+			$destination = public_path().'/'.$request->destination.'';
+			$fileName = $file->getClientOriginalName();
+			$file->move($destination, $fileName);
+
+			$values['image'] = $fileName;
+			$values['created_at'] = Carbon::now();
+			$values['updated_at'] = Carbon::now();
+    	}
+    	
+
+    	$table =  DB::table(''.$request->tableName.'')->insert($values);
+
+    	return back()->with('success', 'Saving successful!');
+
+    }
+
+    private function getTables($exclude = null) {
 
     	$tables = DB::select('SHOW TABLES');
     	$tables = array_map('current', $tables);
 
-    	$tables = array_diff($tables, ['migrations', 'persistences', 'throttle', 'activations', 'reminders']);
+    	$tables = array_diff($tables, ['migrations', 'persistences', 'throttle', 'activations', 'reminders', $exclude]);
 
     	return $tables;
     }

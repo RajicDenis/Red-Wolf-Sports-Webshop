@@ -53,3 +53,5 @@ Route::get('admin', 'Admin\AdminController@index')->name('admin_home');
 Route::get('admin/show{slug}', 'Admin\AdminController@showTable')->name('admin_showTable');
 
 Route::get('admin/addNew{slug}', 'Admin\AdminController@addToTable')->name('admin_addToTable');
+
+Route::post('admin/store', 'Admin\AdminController@store');
