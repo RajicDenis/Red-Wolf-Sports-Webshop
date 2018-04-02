@@ -16,6 +16,7 @@ a {
       flex-direction: row;
 }
 .control_panel {
+	position: fixed;
 	display: flex;
 	flex-direction: column;
 	width: 200px;
@@ -52,9 +53,11 @@ a {
 }
 
 .admin_page {
+	position: absolute;
 	display: flex;
 	flex-direction: column;
-	width: 100%;
+	left: 200px;
+    width: calc(100% - 200px);
 }
 .admin_top {
 	display: flex;
@@ -79,6 +82,7 @@ a {
 .breadcrumb-title {
 	font-size: 17px;
     font-weight: 600;
+    font-style: italic;
 }
 .small_user_img {
 	width: 30px;

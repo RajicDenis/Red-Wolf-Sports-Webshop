@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use DB;
 use Schema;
 use Carbon\Carbon;
+use Hash;
 use App\User;
 
 class AdminController extends Controller
@@ -15,7 +16,7 @@ class AdminController extends Controller
 
     public function index() {
 
-    	$tables = $this->getTables('roles');
+    	$tables = $this->getTables();
 
     	$featured = array_filter($tables, function($value) {
 
@@ -58,7 +59,7 @@ class AdminController extends Controller
     	$selectedTable = $request->slug;
     	$tbl = lcfirst($request->slug);
 
-    	$tableName = array_diff(Schema::getColumnListing($tbl), ['id', 'last_login', 'password', 'permissions', 'created_at', 'updated_at']);
+    	$tableName = array_diff(Schema::getColumnListing($tbl), ['id', 'last_login', 'permissions', 'created_at', 'updated_at']);
     	$tableData = DB::table(''.$tbl.'')->get();
 
     	return view('admin.pages.addToTable')
@@ -83,10 +84,16 @@ class AdminController extends Controller
 			$file->move($destination, $fileName);
 
 			$values['image'] = $fileName;
-			$values['created_at'] = Carbon::now();
-			$values['updated_at'] = Carbon::now();
+    	}
+
+    	if($request->password != null) {
+    		unset($values['password']);
+
+    		$values['password'] = Hash::make($request->password);
     	}
     	
+    	$values['created_at'] = Carbon::now();
+		$values['updated_at'] = Carbon::now();
 
     	$table =  DB::table(''.$request->tableName.'')->insert($values);
 

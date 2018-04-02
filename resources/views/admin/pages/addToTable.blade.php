@@ -6,7 +6,7 @@
 
 		<div class="st-icon"><i class="far fa-plus-square fa-3x"></i></div>
 
-		<div class="st-name">New {{ substr($selectedTable, 0, -1) }}</div>
+		<div class="st-name">{{ $selectedTable }} table</div>
 
 	</div>
 
@@ -23,7 +23,7 @@
 
 		<div class="add-form">
 			
-			<div class="af-title">Add New {{ substr($selectedTable, 0, -1) }}</div>
+			<div class="af-title">Add Data to {{ $selectedTable }}</div>
 
 			<form id="add_form" action="{{ action('Admin\AdminController@store') }}" method="POST" enctype="multipart/form-data">
 				
@@ -75,5 +75,19 @@
 		</div>
 
 	</div>
+
+@stop
+
+@section('js')
+
+	<script>
+		$(document).ready(function() {
+
+			// Create breadcrumb
+			$('.at-left').append('<i class="fas fa-angle-right fa-2x bread-arrow"></i><a href="{{ action('Admin\AdminController@showTable', ['slug' => $selectedTable]) }}" class="breadcrumb-title breadcrumb-item">{{ $selectedTable }}</a>');
+
+		});
+
+	</script>
 
 @stop
