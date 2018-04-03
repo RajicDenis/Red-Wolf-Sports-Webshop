@@ -42,6 +42,37 @@
 
         <script src="{{ URL::asset('js/sweetalert.min.js') }}"></script>
 
+        <script>
+            $(document).ready(function() {
+
+                // Ask for confirmation before deleting table data
+                $('.del').on('click', function() {
+
+                    var formId = $(this).data('id');
+
+                    swal({
+                        title: "Are you sure?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    },
+
+                    function(isConfirm){
+                        if(isConfirm) {
+
+                           $(`#${formId}`).submit();
+
+                        }  
+                    });
+
+                });
+
+            });
+
+        </script>
+
     </head>
     <body>
 

@@ -33,38 +33,42 @@
 
 				@foreach($tableName as $t)
 
-					<div class="form-group">
+					@if($t != 'id')
 
-						<label for="{{ $t }}">{{ str_replace('_', ' ', ucfirst($t)) }}</label>
+						<div class="form-group">
 
-						@if(in_array(Helpers::getFieldType($selectedTable, $t), Helpers::numericTypes()))
+							<label for="{{ $t }}">{{ str_replace('_', ' ', ucfirst($t)) }}</label>
 
-							<input class="custom_input" type="number" name="{{ $t }}" required>
+							@if(in_array(Helpers::getFieldType($selectedTable, $t), Helpers::numericTypes()))
 
-						@elseif($t == 'email')
+								<input class="custom_input" type="number" name="{{ $t }}" required>
 
-							<input class="custom_input" type="email" name="{{ $t }}" required>
+							@elseif($t == 'email')
 
-						@elseif(Helpers::getFieldType($selectedTable, $t) == 'text')
+								<input class="custom_input" type="email" name="{{ $t }}" required>
 
-							<textarea name="{{ $t }}" rows="5"></textarea>
+							@elseif(Helpers::getFieldType($selectedTable, $t) == 'text')
 
-						@elseif(Helpers::getFieldType($selectedTable, $t) == 'date')
+								<textarea name="{{ $t }}" rows="5"></textarea>
 
-							<input type="date" name="{{ $t }}">
+							@elseif(Helpers::getFieldType($selectedTable, $t) == 'date')
 
-						@elseif($t == 'image' || $t == 'picture' || $t == 'img')
+								<input type="date" name="{{ $t }}">
 
-							<input class="custom_input" type="text" name="destination" placeholder="File destination folder (has to be inside the public folder) e.g. images/products" required><br>
+							@elseif($t == 'image' || $t == 'picture' || $t == 'img')
 
-							<input type="file" name="image" id="{{ $t }}">
+								<input class="custom_input" type="text" name="destination" placeholder="File destination folder (has to be inside the public folder) e.g. images/products"><br>
 
-						@else
+								<input type="file" name="image" id="{{ $t }}">
 
-							<input class="custom_input" type="text" name="{{ $t }}">
+							@else
 
-						@endif
-					</div>
+								<input class="custom_input" type="text" name="{{ $t }}">
+
+							@endif
+						</div>
+
+					@endif
 
 				@endforeach
 

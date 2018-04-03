@@ -57,3 +57,5 @@ Route::get('admin/addNew{slug}/{pid?}', 'Admin\AdminController@addToTable')->nam
 Route::post('admin/store', 'Admin\AdminController@store');
 
 Route::post('admin/edit{slug}', 'Admin\AdminController@edit');
+
+Route::delete('admin/delete/{id}', 'Admin\AdminController@delete');

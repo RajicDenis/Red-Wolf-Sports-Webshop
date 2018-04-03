@@ -59,7 +59,7 @@ class AdminController extends Controller
     	$selectedTable = $request->slug;
     	$tbl = lcfirst($request->slug);
 
-    	$tableName = array_diff(Schema::getColumnListing($tbl), ['id', 'last_login', 'permissions', 'created_at', 'updated_at']);
+    	$tableName = array_diff(Schema::getColumnListing($tbl), ['last_login', 'permissions', 'created_at', 'updated_at']);
     	
 
     	if($request->pid == null) {
@@ -89,13 +89,25 @@ class AdminController extends Controller
 
     	$values = array_slice($request->all(), 2);
 
+    	unset($values['tableid']);
+    	unset($values['id']);
+
     	if($request->image != null) {
 
 			unset($values['image']);
 			unset($values['destination']);
 
 			$file = $request->image;
-			$destination = public_path().'/'.$request->destination.'';
+
+			if($request->destination != null) {
+
+				$destination = public_path().'/'.$request->destination.'';
+
+			} else {
+
+				$destination = public_path().'/images';
+			}
+			
 			$fileName = $file->getClientOriginalName();
 			$file->move($destination, $fileName);
 
@@ -104,6 +116,7 @@ class AdminController extends Controller
     	} else {
 
     		unset($values['image']);
+    		unset($values['destination']);
 
     	}
 
@@ -116,9 +129,26 @@ class AdminController extends Controller
     	$values['created_at'] = Carbon::now();
 		$values['updated_at'] = Carbon::now();
 
-    	$table =  DB::table(''.$request->tableName.'')->insert($values);
+		if($request->tableid == null) {
 
+			$table =  DB::table(''.$request->tableName.'')->insert($values);
+
+		} else {
+
+			$table =  DB::table(''.$request->tableName.'')->where('id', $request->tableid)->update($values);
+
+		}
+
+    	
     	return back()->with('success', 'Saving successful!');
+
+    }
+
+    public function delete(Request $request, $id) {
+
+    	DB::table(''.$request->tableName.'')->where('id', $id)->delete();
+
+    	return back()->with('success', 'Deleting successful!');
 
     }
 

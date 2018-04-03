@@ -12,6 +12,15 @@
 
 	</div>
 
+	@if(Session::has('success'))
+		<div class="center">
+			<div class="alert alert-success fade in">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				{{ Session::get('success') }}
+			</div>
+		</div>
+	@endif
+
 	<div id="table-wrap">
 		
 		<table id="admin_table" class="table-striped">
@@ -38,7 +47,12 @@
 							@endforeach
 								<td style="text-align: right; width: 120px;">
 									<a href="{{ action('Admin\AdminController@addToTable', ['slug' => $selectedTable, 'pid' => $t->id]) }}" class="btn btn-warning"><i class="fas fa-pencil-alt white"></i></a>
-									<a href="#" class="btn btn-danger"><i class="fas fa-trash white"></i></a>
+									<form action="{{ action('Admin\AdminController@delete', $t->id) }}" method="POST" id="delete_form_{{ $t->id }}" style="display: none;">
+										{{ csrf_field() }}
+										<input name="_method" type="hidden" value="DELETE">
+										<input type="hidden" name="tableName" value="{{ $selectedTable }}">
+									</form>
+									<div class="btn btn-danger del" data-id='delete_form_{{ $t->id }}'><i class="fas fa-trash white"></i></div>
 								</td>
 						</tr>
 					@endforeach
@@ -91,6 +105,8 @@
 				}
 
 			});
+
+
 		});
 
 	</script>
