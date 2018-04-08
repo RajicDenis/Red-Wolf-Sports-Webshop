@@ -66,7 +66,7 @@
 
             <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
 
-            <a href="{{URL::route('brand')}}" class="btn-a explore white-to-black">EXPLORE</a>
+            <a href="{{URL::route('jerseys')}}" class="btn-a explore white-to-black">EXPLORE</a>
 
         </div>
     </div>
@@ -82,7 +82,7 @@
 
             <p class="p-desc wh tc">Whether you're playing in the biggest stadiums in the world, bossing the cage, or the king of your street, do it your own way. Those who create their own path never follow.</p>
 
-            <a href="{{URL::route('brand')}}" class="btn-a explore2 wh white">EXPLORE</a>
+            <a href="{{URL::route('jerseys')}}" class="btn-a explore2 wh white">EXPLORE</a>
         </div>
 
         <div class="s2-right-box">
@@ -106,7 +106,7 @@
 
             <p class="p-desc tc">New series updated with energizing boost™ for a hybrid look that brings together the best of iconic stadium style and modern performance. A leather upper keeps them connected to their predecessor.</p>
 
-            <a href="{{URL::route('brand')}}" class="btn-a explore white-to-black">EXPLORE</a>
+            <a href="{{URL::route('jerseys')}}" class="btn-a explore white-to-black">EXPLORE</a>
 
         </div>
     </div>
