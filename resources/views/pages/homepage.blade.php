@@ -14,7 +14,7 @@
             <p>EUR<span class="pnbr">{{ $sponsored->price}}</span><br><span class="pvat">Excl. VAT</span></p>
 
             <div class="poster-buttons">
-                <a href="{{URL::route('brand')}}" class="btn-a poster-btn white">EXPLORE</a>
+                <a href="{{URL::route('jerseys')}}" class="btn-a poster-btn white">EXPLORE</a>
 
                 <a href="{{ action('ProductController@index', $sponsored->slug) }}" class="btn-a poster-btn buy white">BUY NOW</a>
             </div>

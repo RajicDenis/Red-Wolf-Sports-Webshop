@@ -12,7 +12,7 @@
 
 		<img class="partial-img" src="{{URL::asset('images/posters/adidas-partial.jpg')}}">
 		
-		<div class="brandName white">ADIDAS FOOTBALL SHOES</div>
+		<div class="brandName white">Football {{ $type }}</div>
 
 	</div>
 

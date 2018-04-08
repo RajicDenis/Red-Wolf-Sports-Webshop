@@ -13,9 +13,9 @@
 
 Route::get('/', 'HomepageController@index')->name('home');
 
-Route::get('brandPage', function() {
-	return view('pages.brandPage');
-})->name('brand');
+Route::get('jerseys', 'ProductController@showJerseys')->name('jerseys');
+
+Route::get('shoes', 'ProductController@showShoes')->name('shoes');
 
 Route::get('product/{product}', 'ProductController@index')->name('product');
 

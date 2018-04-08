@@ -12,76 +12,34 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($slug)
-    {
+    public function index($slug) {
+
         $product = Product::with('gallery')->where('slug', $slug)->first();
 
         return view('pages.product')->with('product', $product);
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function showJerseys() {
+
+        $product = Product::where('type', 'jersey')->get();
+        $type = 'Jerseys';
+
+        return view('pages.brandPage')
+            ->with('type', $type)
+            ->with('product', $product);
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function showShoes() {
+
+        $product = Product::where('type', 'shoe')->get();
+        $type = 'Shoes';
+
+        return view('pages.brandPage')
+            ->with('type', $type)
+            ->with('product', $product);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
